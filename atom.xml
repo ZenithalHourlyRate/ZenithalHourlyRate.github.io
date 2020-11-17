@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Zenithal Hourly Radio</title>
+  
+  
+  <link href="https://blog.zenithal.me/atom.xml" rel="self"/>
+  
+  <link href="https://blog.zenithal.me/"/>
+  <updated>2020-11-17T07:16:41.808Z</updated>
+  <id>https://blog.zenithal.me/</id>
+  
+  <author>
+    <name>Zenithal</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从 Signing Party 到年轻人的第一次 Revoke</title>
+    <link href="https://blog.zenithal.me/2020/11/16/%E4%BB%8E-Signing-Party-%E5%88%B0%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1-Revoke/"/>
+    <id>https://blog.zenithal.me/2020/11/16/%E4%BB%8E-Signing-Party-%E5%88%B0%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1-Revoke/</id>
+    <published>2020-11-16T14:15:05.000Z</published>
+    <updated>2020-11-17T07:16:41.808Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>在<a href="https://isrc.iscas.ac.cn/summer2020/">开源软件供应链2020峰会</a>的邀请下，以及<a href="https://tuna.moe/">TUNA</a>的派遣下，我与来自<a href="https://uoj.ac/">UOJ</a>的两位同学<a href="https://t.me/Billchenchina">billchenchina</a>以及<a href="https://t.me/TechCiel">Ciel</a>面基，并举行了一次奇怪的signing party。</p><h1 id="举办-Signing-Party"><a href="#举办-Signing-Party" class="headerlink" title="举办 Signing Party"></a>举办 Signing Party</h1><p>首先我们交换了公钥，对照了公钥指纹。</p><p>然后我们验证了ID，无非是常规的身份证（如果 UID 中有实名的话），学生卡，以及其他ID。</p><p>以下步骤可以非面对面进行。</p><p>然后我们商议决定，除了要验证邮箱，我们还需要验证私钥的持有性，即验证各个私钥的功能性。</p><p>于是我们采取了以下握手方案：</p><ol><li>A 向 B 发送用 A 签名用 B 加密的「信息」，「信息」中包含发方与接收方邮箱，以及一些字符。（B 收到后即可验证 A 的 S 能力与邮箱的持有性）</li><li>B 将 「信息」附在其邮件中，以「—BEGIN RAW MESSAGE—」包裹，并增加B相关的一些字符，形成「信息二」，签名并加密，发送给 A 。（A 收到后可验证 B 的S，E以及邮箱的持有）</li><li>A 将 「信息二」附在邮件中，附上对 B 公钥的签名，并将加上字符形成「信息三」，签名加密后发给 B。（B 收到后可验证 A 的E，C，并收获签名）</li><li>B 将 「信息三」附在邮件中，附上对 A 公钥的签名，形成「信息四」，签名加密后发给 A。（A 收到后可验证B的C，并收获签名）</li></ol><p>上述方案对于一个 UID ，一组ES密钥的用户较为友好，对于多个 UID，多组ES密钥的用户，需要重复其中一些步骤才能进行下一步。</p><p>对于 A 密钥，我们并未验证，不过可以给一个中心服务器，上传各个人的公钥，只要验证其能登录上去，即可。</p><p>按签名的性质来说，我们只需要验证UID，也就是验证 ID 与邮箱与指纹即可完成 Signing Party 的前半段，后半段只需要交换签名。我们这次进行了一定的加强。</p><h1 id="出锅"><a href="#出锅" class="headerlink" title="出锅"></a>出锅</h1><p>在第三步时，我应该对 A 的公钥进行签名，然后发现我找不到我的主私钥了。</p><p>我导出的私钥显示为（使用 <code>pgpdump</code> ）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Old: Secret Key Packet(tag 5)(277 bytes)</span><br><span class="line">        Ver 4 - new</span><br><span class="line">        Public key creation time - Wed May  1 17:54:39 CST 2019</span><br><span class="line">        Pub alg - RSA Encrypt or Sign(pub 1)</span><br><span class="line">        RSA n(2048 bits) - ...</span><br><span class="line">        RSA e(17 bits) - ...</span><br><span class="line">        Sym alg - Plaintext or unencrypted data(sym 0)</span><br><span class="line">        GnuPG gnu-dummy (s2k 1001)</span><br></pre></td></tr></table></figure><p>注意到，其只有 n 与 e，而没有其余参数，例如</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Encrypted RSA d</span><br><span class="line">Encrypted RSA p</span><br><span class="line">Encrypted RSA q</span><br><span class="line">Encrypted RSA u</span><br></pre></td></tr></table></figure><p>回溯历史，发现当时我导出「主」私钥的参数为</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">9603  gpg --armor --export-secret-subkeys <span class="string">&#x27;23470D4FD461AA84!&#x27;</span></span><br><span class="line">9610  gpg --delete-secret-keys 23470D4FD461AA84</span><br></pre></td></tr></table></figure><p>其中 <code>23470D4FD461AA84</code> 为主钥的keyid，但由于命令是 <code>export-secret-subkeys</code>，在此keyid下找不到相应子密钥，所以导出来的私钥是空的，只有公钥与UID与一些签名。</p><p>所以在导出时应该注意！并查验导出私有钥匙的文件！可以通过 <code>pgpdump</code>，<code>gpg --show-keys file</code>，<code>gpg --list-packets file</code> 来查验。</p><h1 id="Revoke"><a href="#Revoke" class="headerlink" title="Revoke"></a>Revoke</h1><p>找不到私钥，但有预先生成的吊销证书，我于是将其挂载在公钥上后上传，成功吊销。</p><p>年轻人的第一次 Revoke。</p><h1 id="新公钥"><a href="#新公钥" class="headerlink" title="新公钥"></a>新公钥</h1><p>目前新公钥在 <a href="https://blog.zenithal.me/key">https://blog.zenithal.me/key</a> 中，其指纹为 <code>1127F188280AE3123619332987E17EEF9B18B6C9</code>。</p><p>由于进行过 UID 验证，重启握手后完成了 Signing Party。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;前情提要&quot;&gt;&lt;a href=&quot;#前情提要&quot; class=&quot;headerlink&quot; title=&quot;前情提要&quot;&gt;&lt;/a&gt;前情提要&lt;/h1&gt;&lt;p&gt;在&lt;a href=&quot;https://isrc.iscas.ac.cn/summer2020/&quot;&gt;开源软件供应链2020峰会&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="mutt" scheme="https://blog.zenithal.me/tags/mutt/"/>
+    
+    <category term="pgp" scheme="https://blog.zenithal.me/tags/pgp/"/>
+    
+    <category term="daily" scheme="https://blog.zenithal.me/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mutt 配置：一种实践的部署方式</title>
+    <link href="https://blog.zenithal.me/2020/10/11/Mutt-%E9%85%8D%E7%BD%AE%EF%BC%9A%E4%B8%80%E7%A7%8D%E5%AE%9E%E8%B7%B5%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F/"/>
+    <id>https://blog.zenithal.me/2020/10/11/Mutt-%E9%85%8D%E7%BD%AE%EF%BC%9A%E4%B8%80%E7%A7%8D%E5%AE%9E%E8%B7%B5%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F/</id>
+    <published>2020-10-10T17:40:32.000Z</published>
+    <updated>2020-10-10T18:04:15.108Z</updated>
+    
+    <content type="html"><![CDATA[<p>万事在命令行中完成，这是个美好的愿景，也是许多人的实践。</p><p>但当我们发现，连日常处理邮件都需要开一个网页或开一个图形化客户端才能完成，而没有可用的命令行客户端时，我们是失望的。</p><p>尤其是当我们需要对邮件进行自动化与控制，普通的图形化界面已经满足不了时，我们渴求着脚本，我们期望着管道。</p><p>而对一些对安全有需求的客户来说，加密与签名也必不可少，但这些工具的集成与支持程度做得非常糟糕。</p><p>为了解决该难题，一些人可能已经查过，找到了救命工具：Mutt！</p><p>但是，Mutt 的配置难度立即击败了他们，他们受挫了，又缩回了图形化邮件客户端。</p><p>为什么会这么难�这一方面有工具选项繁杂的问题，另一方面，邮件系统本身也是难的！而现代的信息系统中，邮件已经逐渐式微，大家对其的掌握已经不像以前的黑客那么熟练了，从而相关的介绍文章也少之甚少。</p><p>我们发现，互联网上的 Mutt 教程要么对 Mutt 特性大书特书，然后根据特性列举一些未组织的代码片段；要么就是简单示例，给些参数；要么就是大量枚举选项（Mutt自己的文档也是如此）。这些教程，要么让人不知如何下手，要么让人迷失在大量选项中，从而难以构建其一个最小的工作样例。</p><p>是的，我们所需要的就是一个最小工作样例，以此为基础，逐渐调参到我们喜欢的模样。这种反馈过程不必多言。</p><p>所以，我们从实践角度出发，给大家提供一个最小工作样例，先让整个流程部署起来、跑起来！然后再谈其他的配置。</p><p>配置文件与说明在这个地址中：<a href="https://github.com/ZenithalHourlyRate/muttrc">https://github.com/ZenithalHourlyRate/muttrc</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;万事在命令行中完成，这是个美好的愿景，也是许多人的实践。&lt;/p&gt;
+&lt;p&gt;但当我们发现，连日常处理邮件都需要开一个网页或开一个图形化客户端才能完成，而没有可用的命令行客户端时，我们是失望的。&lt;/p&gt;
+&lt;p&gt;尤其是当我们需要对邮件进行自动化与控制，普通的图形化界面已经满足不了时</summary>
+      
+    
+    
+    
+    
+    <category term="mutt" scheme="https://blog.zenithal.me/tags/mutt/"/>
+    
+    <category term="configuration" scheme="https://blog.zenithal.me/tags/configuration/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Across the Great Wall we can reach every corner in the world.</title>
+    <link href="https://blog.zenithal.me/2020/10/10/Across-the-Great-Wall-we-can-reach-every-corner-in-the-world/"/>
+    <id>https://blog.zenithal.me/2020/10/10/Across-the-Great-Wall-we-can-reach-every-corner-in-the-world/</id>
+    <published>2020-10-09T16:01:17.000Z</published>
+    <updated>2020-10-09T16:07:53.317Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
