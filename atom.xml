@@ -6,7 +6,7 @@
   <link href="https://blog.zenithal.me/atom.xml" rel="self"/>
   
   <link href="https://blog.zenithal.me/"/>
-  <updated>2020-11-17T07:16:41.808Z</updated>
+  <updated>2020-11-18T05:50:00.758Z</updated>
   <id>https://blog.zenithal.me/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TUNA 成员参加开源软件供应链2020峰会</title>
+    <link href="https://blog.zenithal.me/2020/11/18/TUNA-%E6%88%90%E5%91%98%E5%8F%82%E5%8A%A0%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE2020%E5%B3%B0%E4%BC%9A/"/>
+    <id>https://blog.zenithal.me/2020/11/18/TUNA-%E6%88%90%E5%91%98%E5%8F%82%E5%8A%A0%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE2020%E5%B3%B0%E4%BC%9A/</id>
+    <published>2020-11-18T05:48:11.000Z</published>
+    <updated>2020-11-18T05:50:00.758Z</updated>
+    
+    <content type="html"><![CDATA[<p>参见 <a href="https://tuna.moe/blog/2020/iscas-conf/">tuna.moe</a> 主站</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;参见 &lt;a href=&quot;https://tuna.moe/blog/2020/iscas-conf/&quot;&gt;tuna.moe&lt;/a&gt; 主站&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="daily" scheme="https://blog.zenithal.me/tags/daily/"/>
+    
+    <category term="tuna" scheme="https://blog.zenithal.me/tags/tuna/"/>
+    
+    <category term="travel" scheme="https://blog.zenithal.me/tags/travel/"/>
+    
+  </entry>
   
   <entry>
     <title>从 Signing Party 到年轻人的第一次 Revoke</title>
