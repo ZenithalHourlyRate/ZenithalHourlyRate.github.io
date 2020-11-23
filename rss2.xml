@@ -9,8 +9,41 @@
     <atom:link href="https://blog.zenithal.me/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 18 Nov 2020 05:50:00 GMT</pubDate>
+    <pubDate>Mon, 23 Nov 2020 13:02:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Tunight: About Mutt and About M1</title>
+      <link>https://blog.zenithal.me/2020/11/23/Tunight-About-Mutt-and-About-M1/</link>
+      <guid>https://blog.zenithal.me/2020/11/23/Tunight-About-Mutt-and-About-M1/</guid>
+      <pubDate>Mon, 23 Nov 2020 12:56:06 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;似乎不是很成功&quot;&gt;&lt;a href=&quot;#似乎不是很成功&quot; class=&quot;headerlink&quot; title=&quot;似乎不是很成功&quot;&gt;&lt;/a&gt;似乎不是很成功&lt;/h1&gt;&lt;p&gt;听众很多，讲者很菜，demo很粗糙&lt;/p&gt;
+&lt;p&gt;简介，slides和录像都在 &lt;a href=&quot;h</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="似乎不是很成功"><a href="#似乎不是很成功" class="headerlink" title="似乎不是很成功"></a>似乎不是很成功</h1><p>听众很多，讲者很菜，demo很粗糙</p><p>简介，slides和录像都在 <a href="https://tuna.moe/event/2020/mutt/">https://tuna.moe/event/2020/mutt/</a> 中</p><h1 id="摸杰哥M1"><a href="#摸杰哥M1" class="headerlink" title="摸杰哥M1"></a>摸杰哥M1</h1><p>直接扔杰哥链接 <a href="https://jia.je/hardware/2020/11/19/arm-m1-macbookair/">https://jia.je/hardware/2020/11/19/arm-m1-macbookair/</a></p><p>感觉很 fancy</p><p>丽狼nb！</p>]]></content:encoded>
+      
+      
+      
+      <category domain="https://blog.zenithal.me/tags/mutt/">mutt</category>
+      
+      <category domain="https://blog.zenithal.me/tags/daily/">daily</category>
+      
+      <category domain="https://blog.zenithal.me/tags/tunight/">tunight</category>
+      
+      <category domain="https://blog.zenithal.me/tags/jiegec/">jiegec</category>
+      
+      <category domain="https://blog.zenithal.me/tags/apple/">apple</category>
+      
+      
+      <comments>https://blog.zenithal.me/2020/11/23/Tunight-About-Mutt-and-About-M1/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>TUNA 成员参加开源软件供应链2020峰会</title>

@@ -6,7 +6,7 @@
   <link href="https://blog.zenithal.me/atom.xml" rel="self"/>
   
   <link href="https://blog.zenithal.me/"/>
-  <updated>2020-11-18T05:50:00.758Z</updated>
+  <updated>2020-11-23T13:02:10.346Z</updated>
   <id>https://blog.zenithal.me/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tunight: About Mutt and About M1</title>
+    <link href="https://blog.zenithal.me/2020/11/23/Tunight-About-Mutt-and-About-M1/"/>
+    <id>https://blog.zenithal.me/2020/11/23/Tunight-About-Mutt-and-About-M1/</id>
+    <published>2020-11-23T12:56:06.000Z</published>
+    <updated>2020-11-23T13:02:10.346Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="似乎不是很成功"><a href="#似乎不是很成功" class="headerlink" title="似乎不是很成功"></a>似乎不是很成功</h1><p>听众很多，讲者很菜，demo很粗糙</p><p>简介，slides和录像都在 <a href="https://tuna.moe/event/2020/mutt/">https://tuna.moe/event/2020/mutt/</a> 中</p><h1 id="摸杰哥M1"><a href="#摸杰哥M1" class="headerlink" title="摸杰哥M1"></a>摸杰哥M1</h1><p>直接扔杰哥链接 <a href="https://jia.je/hardware/2020/11/19/arm-m1-macbookair/">https://jia.je/hardware/2020/11/19/arm-m1-macbookair/</a></p><p>感觉很 fancy</p><p>丽狼nb！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;似乎不是很成功&quot;&gt;&lt;a href=&quot;#似乎不是很成功&quot; class=&quot;headerlink&quot; title=&quot;似乎不是很成功&quot;&gt;&lt;/a&gt;似乎不是很成功&lt;/h1&gt;&lt;p&gt;听众很多，讲者很菜，demo很粗糙&lt;/p&gt;
+&lt;p&gt;简介，slides和录像都在 &lt;a href=&quot;h</summary>
+      
+    
+    
+    
+    
+    <category term="mutt" scheme="https://blog.zenithal.me/tags/mutt/"/>
+    
+    <category term="daily" scheme="https://blog.zenithal.me/tags/daily/"/>
+    
+    <category term="tunight" scheme="https://blog.zenithal.me/tags/tunight/"/>
+    
+    <category term="jiegec" scheme="https://blog.zenithal.me/tags/jiegec/"/>
+    
+    <category term="apple" scheme="https://blog.zenithal.me/tags/apple/"/>
+    
+  </entry>
   
   <entry>
     <title>TUNA 成员参加开源软件供应链2020峰会</title>
