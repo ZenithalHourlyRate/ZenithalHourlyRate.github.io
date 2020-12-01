@@ -6,7 +6,7 @@
   <link href="https://blog.zenithal.me/atom.xml" rel="self"/>
   
   <link href="https://blog.zenithal.me/"/>
-  <updated>2020-11-28T15:47:52.205Z</updated>
+  <updated>2020-12-01T10:11:12.833Z</updated>
   <id>https://blog.zenithal.me/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Link Preview May Reset Your Password</title>
+    <link href="https://blog.zenithal.me/2020/12/01/Link-Preview-May-Reset-Your-Password/"/>
+    <id>https://blog.zenithal.me/2020/12/01/Link-Preview-May-Reset-Your-Password/</id>
+    <published>2020-12-01T08:50:46.000Z</published>
+    <updated>2020-12-01T10:11:12.833Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><p>Link preview provided as a feature by webmail/client such as Outlook or IM like Telegram may cause unexpected behavior like unwanted account register confirming, automatic mailing list subscribing or even infinite password resetting for links with special functionality.</p><h1 id="The-Story-and-Other-Stories"><a href="#The-Story-and-Other-Stories" class="headerlink" title="The Story and Other Stories"></a>The Story and Other Stories</h1><h2 id="Official-Account-Used-For-Registering"><a href="#Official-Account-Used-For-Registering" class="headerlink" title="Official Account Used For Registering"></a>Official Account Used For Registering</h2><p>One morning, I opened OUR mailbox, and found an address validation letter with a confirming link lying there. Spam, I thought, as this email address is used as a official account, no one in our organizaiton would use it for personal account registration, but right before I close this mailbox, I was suddenly reminded of something.</p><p>The day before this morning, we happily tested a new functionality provided by the webmail of Outlook – Link Preview. Well since we are already modern now, with modern front-end and modern webpage, what’s wrong with link preview? This is what we all expected! This is how modern front-end should be like!</p><p>But wait, would link preview visit every link in this email? If it does, right after I opened this email, the validation would be done!</p><p>Even worse, I can not check whether the validation is over since the registered account is not in my hand and I dare not click on that confirming link.</p><p>After some discussion within our org, we think that there may be some allow lists that prevent the preview of certain sites, but if the list is not a list of REGEX, when I register the account of famous platforms, the link would still be previewed.</p><p>So the registered account still hangs there, we do not know its status, and bad thing can be done by that account.</p><h2 id="Other-Stories"><a href="#Other-Stories" class="headerlink" title="Other Stories"></a>Other Stories</h2><p>After I discovered this issue, I come to a broader concern on similar issues. And after posting this issue among my friends, more stories are collected and more exploits can be done.</p><p>One story is that one user of Telegram gmailbot received a validation letter one day, and after they opened that bot, the message of confirmation success was received right away. The mechanism of preview of Telegram is to preview every first link of one message unless the user cancels that.</p><p>Another story is that one user of one email provider used that email for some account registering, and one day they forgot their password. For that site, password reset are done by a special link sent to the email address associated with that account, but for the sake of security, the email provider checks every link in the email(common behavior of big providers, maybe), hence the password reset link would have been accessed once when the user sees the email, and the reset can not be done successfully. Since this security check is a black box and unrevealed to that user, the user tried almost infinitely and asked the admin of that site to debug.</p><h1 id="Spamming-DoS-Fake-Identity-Misbehavior-and-Even-More"><a href="#Spamming-DoS-Fake-Identity-Misbehavior-and-Even-More" class="headerlink" title="Spamming, DoS, Fake Identity, Misbehavior and Even More"></a>Spamming, DoS, Fake Identity, Misbehavior and Even More</h1><ol><li>When subscribing a mailing list on web, a confirmation letter would be sent, In some forms it asks you to reply to that email containing certain string, but mostly it shows you a validation link. This may be used for spamming hence DoS of one account; it can also be used for DoS of one mailing list as all subscribers are ‘valid’.</li><li>When you upload a PGP public key to a keyserver like OpenPGP, it sends validation letter. Hence fake public key of one identity can be made with confirmation, and without revocation.</li><li>As the last story above indicates, password reset can never be done, or done by the provider.</li><li>When there are one-time special functional links(common behavior), and the provider/client automatically access that link in any form, there are unexpected behaviors. </li></ol><h1 id="Related-Report"><a href="#Related-Report" class="headerlink" title="Related Report"></a>Related Report</h1><p>Ref to this post <a href="https://www.macrumors.com/2020/10/26/link-previews-may-lead-to-security-vulnerabilities/">https://www.macrumors.com/2020/10/26/link-previews-may-lead-to-security-vulnerabilities/</a></p><p>It talks about information leaking and malicious payload, while I am from the perspective of the protocol itself.</p><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Provider, don’t touch my thing.</p><p>Automation/Rules without turn-off options are bad. </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;TL-DR&quot;&gt;&lt;a href=&quot;#TL-DR&quot; class=&quot;headerlink&quot; title=&quot;TL;DR&quot;&gt;&lt;/a&gt;TL;DR&lt;/h1&gt;&lt;p&gt;Link preview provided as a feature by webmail/client such </summary>
+      
+    
+    
+    
+    
+    <category term="mutt" scheme="https://blog.zenithal.me/tags/mutt/"/>
+    
+    <category term="web" scheme="https://blog.zenithal.me/tags/web/"/>
+    
+    <category term="outlook" scheme="https://blog.zenithal.me/tags/outlook/"/>
+    
+    <category term="telegram" scheme="https://blog.zenithal.me/tags/telegram/"/>
+    
+  </entry>
   
   <entry>
     <title>赶/敢PRE</title>
