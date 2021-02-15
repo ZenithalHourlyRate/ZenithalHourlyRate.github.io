@@ -64,9 +64,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-从Ant-Design-GitHub失窃谈开去：国内有可用的2FA吗" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Ant-Design-GitHub-2FA-unavailable-in-China" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/02/15/%E4%BB%8EAnt-Design-GitHub%E5%A4%B1%E7%AA%83%E8%B0%88%E5%BC%80%E5%8E%BB%EF%BC%9A%E5%9B%BD%E5%86%85%E6%9C%89%E5%8F%AF%E7%94%A8%E7%9A%842FA%E5%90%97/" class="article-date">
+    <a href="/2021/02/15/Ant-Design-GitHub-2FA-unavailable-in-China/" class="article-date">
   <time datetime="2021-02-15T10:16:56.000Z" itemprop="datePublished">2021-02-15</time>
 </a>
     
@@ -78,7 +78,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/15/%E4%BB%8EAnt-Design-GitHub%E5%A4%B1%E7%AA%83%E8%B0%88%E5%BC%80%E5%8E%BB%EF%BC%9A%E5%9B%BD%E5%86%85%E6%9C%89%E5%8F%AF%E7%94%A8%E7%9A%842FA%E5%90%97/">从Ant Design GitHub失窃案谈开去：国内有可用的2FA吗</a>
+      <a class="article-title" href="/2021/02/15/Ant-Design-GitHub-2FA-unavailable-in-China/">从Ant Design GitHub失窃案谈开去：国内有可用的2FA吗</a>
     </h1>
   
 
@@ -86,7 +86,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><p>本文是 <a target="_blank" rel="noopener" href="https://canokeys.org/">https://canokeys.org</a> 或（Telegram: @canokeys）的硬广。商务合作请联系群内相关人员。</p>
+        <h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><p>本文是 <a target="_blank" rel="noopener" href="https://canokeys.org/">https://canokeys.org</a> 或（Telegram: @canokeys）的硬广，但本文并非 Canokeys 官方发布。</p>
 <h1 id="事件本身"><a href="#事件本身" class="headerlink" title="事件本身"></a>事件本身</h1><p>2021-02-15，UTC+8，早晨的群友发现 <a target="_blank" rel="noopener" href="https://ant.design/">https://ant.design</a> 404，后官方推特向GitHub反馈表明帐号失窃，相关项目被转移。</p>
 <h1 id="群友讨论"><a href="#群友讨论" class="headerlink" title="群友讨论"></a>群友讨论</h1><p>不少群友在感叹相关人员水平之后（<a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/issues/4593">延伸材料</a>），灵魂发问：为啥该失窃员工没有对帐号开启2FA（多重因素验证）呢。我的简单回答是：很难，或者没法合法开启。本文不探讨「相关人员水平」或「相关组织管理（指组织强制所有成员开启2FA）」的问题，我们来探讨一下「国内的2FA可用性」。</p>
 <h2 id="GitHub-2FA"><a href="#GitHub-2FA" class="headerlink" title="GitHub 2FA"></a>GitHub 2FA</h2><p>我们知道，现代的登录系统，除了密码，还需要通过其他的验证方式来验证「登录者是帐号所有者」，例如「SMS验证码」，「验证应用（Authenticator App）」，「安全密钥」等，这些验证方式自然也被GitHub所使用，但是，国内的GitHub用户真的能「合法、廉价、易用」地使用相关方式吗。</p>
@@ -96,7 +96,7 @@
 <li>安全密钥：也就上文提到的那些硬件密钥，同时还有 Solokeys，U2F-zero 等相关密钥，但这些即不「廉价」（一个用户需要多个密钥用作备份），也不能「大批量购买」（对企业用户来说，这是最大的阻碍，而Ant Design是企业用户）</li>
 </ul>
 <h2 id="糟糕透顶的国内密码学实践"><a href="#糟糕透顶的国内密码学实践" class="headerlink" title="糟糕透顶的国内密码学实践"></a>糟糕透顶的国内密码学实践</h2><p>上述问题，可以推广到大量实践了2FA的应用。</p>
-<p>登录认证，作为基数设施中的基础设施，是应该有一套完整的实践的，但现在各个环节缺失，帐号的安全性如何保障？</p>
+<p>登录认证，作为基础设施中的基础设施，是应该有一套完整的实践的，但现在各个环节缺失，帐号的安全性如何保障？</p>
 <p>登录认证，作为基础设施中的基础设施，是应该有一套「自主可控」的软件与硬件系统的（这里是严肃的「自主可控」，而不是只是外国软件套皮）。比如说，国内的企业会信任Yubikey吗，会信任Nitrokey吗，依赖于Google Play的「验证应用」能被国内用户、国内企业使用吗。</p>
 <p>国内目前的相关2FA实践是手机验证码，但似乎这成了必选项，而不是可选项，理想中的2FA应该是其他的验证因素也足够验证，这样大家为「手机不在身边」，「手机号被盗以至于银行卡被盗刷」而烦恼。另外值得一提的是「网银盾」这种2FA，需要更现代、开源的实现，比如WebAuthn，而不是国产不知名，无法审核的插件。</p>
 <h1 id="国内的2FA解决方案"><a href="#国内的2FA解决方案" class="headerlink" title="国内的2FA解决方案"></a>国内的2FA解决方案</h1><p>CanoKey由清华大学的一些老师/学生（同时也是开源社区的大佬）所写，有软硬件（包括PCB设计）皆开源的stm32版本，也有使用密码学芯片的发售版本（其核心功能一致，只是速度较大差别），可供国内广大用户、企业选用，满足其硬件密钥乃至安全性需求。</p>
@@ -106,7 +106,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.zenithal.me/2021/02/15/%E4%BB%8EAnt-Design-GitHub%E5%A4%B1%E7%AA%83%E8%B0%88%E5%BC%80%E5%8E%BB%EF%BC%9A%E5%9B%BD%E5%86%85%E6%9C%89%E5%8F%AF%E7%94%A8%E7%9A%842FA%E5%90%97/" data-id="ckl6h3oam00009oik2mky8juj" class="article-share-link">Share</a>
+      <a data-url="https://blog.zenithal.me/2021/02/15/Ant-Design-GitHub-2FA-unavailable-in-China/" data-id="ckl6io9k1000035ikh2xx8ecn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/misc/" rel="tag">misc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li></ul>
@@ -508,7 +508,7 @@
       <ul>
         
           <li>
-            <a href="/2021/02/15/%E4%BB%8EAnt-Design-GitHub%E5%A4%B1%E7%AA%83%E8%B0%88%E5%BC%80%E5%8E%BB%EF%BC%9A%E5%9B%BD%E5%86%85%E6%9C%89%E5%8F%AF%E7%94%A8%E7%9A%842FA%E5%90%97/">从Ant Design GitHub失窃案谈开去：国内有可用的2FA吗</a>
+            <a href="/2021/02/15/Ant-Design-GitHub-2FA-unavailable-in-China/">从Ant Design GitHub失窃案谈开去：国内有可用的2FA吗</a>
           </li>
         
           <li>
