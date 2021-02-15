@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>从Ant Design GitHub失窃案谈开去：国内有可用的2FA吗 | Zenithal Hourly Radio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="TL;DR本文是 https:&#x2F;&#x2F;canokeys.org 或（Telegram: @canokeys）的硬广。商务合作请联系群内相关人员。 事件本身2021-02-15，UTC+8，早晨的群友发现 https:&#x2F;&#x2F;ant.design 404，后官方推特向GitHub反馈表明帐号失窃，相关项目被转移。 群友讨论不少群友在感叹相关人员水平之后（延伸材料），灵魂发问：为啥该失窃员工没有对帐号开启2F">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从Ant Design GitHub失窃案谈开去：国内有可用的2FA吗">
+<meta property="og:url" content="https://blog.zenithal.me/2021/02/15/%E4%BB%8EAnt-Design-GitHub%E5%A4%B1%E7%AA%83%E8%B0%88%E5%BC%80%E5%8E%BB%EF%BC%9A%E5%9B%BD%E5%86%85%E6%9C%89%E5%8F%AF%E7%94%A8%E7%9A%842FA%E5%90%97/index.html">
+<meta property="og:site_name" content="Zenithal Hourly Radio">
+<meta property="og:description" content="TL;DR本文是 https:&#x2F;&#x2F;canokeys.org 或（Telegram: @canokeys）的硬广。商务合作请联系群内相关人员。 事件本身2021-02-15，UTC+8，早晨的群友发现 https:&#x2F;&#x2F;ant.design 404，后官方推特向GitHub反馈表明帐号失窃，相关项目被转移。 群友讨论不少群友在感叹相关人员水平之后（延伸材料），灵魂发问：为啥该失窃员工没有对帐号开启2F">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-15T10:16:56.000Z">
+<meta property="article:modified_time" content="2021-02-15T11:06:39.172Z">
+<meta property="article:author" content="Zenithal">
+<meta property="article:tag" content="security">
+<meta property="article:tag" content="misc">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Zenithal Hourly Radio" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Zenithal Hourly Radio</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.zenithal.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-从Ant-Design-GitHub失窃谈开去：国内有可用的2FA吗" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/02/15/%E4%BB%8EAnt-Design-GitHub%E5%A4%B1%E7%AA%83%E8%B0%88%E5%BC%80%E5%8E%BB%EF%BC%9A%E5%9B%BD%E5%86%85%E6%9C%89%E5%8F%AF%E7%94%A8%E7%9A%842FA%E5%90%97/" class="article-date">
+  <time datetime="2021-02-15T10:16:56.000Z" itemprop="datePublished">2021-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从Ant Design GitHub失窃案谈开去：国内有可用的2FA吗
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><p>本文是 <a target="_blank" rel="noopener" href="https://canokeys.org/">https://canokeys.org</a> 或（Telegram: @canokeys）的硬广。商务合作请联系群内相关人员。</p>
+<h1 id="事件本身"><a href="#事件本身" class="headerlink" title="事件本身"></a>事件本身</h1><p>2021-02-15，UTC+8，早晨的群友发现 <a target="_blank" rel="noopener" href="https://ant.design/">https://ant.design</a> 404，后官方推特向GitHub反馈表明帐号失窃，相关项目被转移。</p>
+<h1 id="群友讨论"><a href="#群友讨论" class="headerlink" title="群友讨论"></a>群友讨论</h1><p>不少群友在感叹相关人员水平之后（<a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/issues/4593">延伸材料</a>），灵魂发问：为啥该失窃员工没有对帐号开启2FA（多重因素验证）呢。我的简单回答是：很难，或者没法合法开启。本文不探讨「相关人员水平」或「相关组织管理（指组织强制所有成员开启2FA）」的问题，我们来探讨一下「国内的2FA可用性」。</p>
+<h2 id="GitHub-2FA"><a href="#GitHub-2FA" class="headerlink" title="GitHub 2FA"></a>GitHub 2FA</h2><p>我们知道，现代的登录系统，除了密码，还需要通过其他的验证方式来验证「登录者是帐号所有者」，例如「SMS验证码」，「验证应用（Authenticator App）」，「安全密钥」等，这些验证方式自然也被GitHub所使用，但是，国内的GitHub用户真的能「合法、廉价、易用」地使用相关方式吗。</p>
+<ul>
+<li>SMS验证码：在GitHub该界面中，没有+86用户的选项，而要获取其他区号，除了少部分人（相对于GitHub国内用户基数），基本无法「合法」做到。</li>
+<li>验证应用（Authenticator App）：前有Google Authenticator后有Microsoft Authenticator，更别说开源的Authy，andOTP等工具，但是，除了Google Play商店或者F-droid，我们基本无法在国内的应用商店中找到这些软件，就算找到了，相关软件也需要Google的服务框架（例如小米应用商店中的Microsoft Authenticator），所以这不「易用」，甚至不「合法」，而有些软件是需要搭配硬件密钥使用的（Yubikey，Nitrokey，Google Titan），这些并不「廉价」，甚至进口这些硬件密钥似乎也不「合法」</li>
+<li>安全密钥：也就上文提到的那些硬件密钥，同时还有 Solokeys，U2F-zero 等相关密钥，但这些即不「廉价」（一个用户需要多个密钥用作备份），也不能「大批量购买」（对企业用户来说，这是最大的阻碍，而Ant Design是企业用户）</li>
+</ul>
+<h2 id="糟糕透顶的国内密码学实践"><a href="#糟糕透顶的国内密码学实践" class="headerlink" title="糟糕透顶的国内密码学实践"></a>糟糕透顶的国内密码学实践</h2><p>上述问题，可以推广到大量实践了2FA的应用。</p>
+<p>登录认证，作为基数设施中的基础设施，是应该有一套完整的实践的，但现在各个环节缺失，帐号的安全性如何保障？</p>
+<p>登录认证，作为基础设施中的基础设施，是应该有一套「自主可控」的软件与硬件系统的（这里是严肃的「自主可控」，而不是只是外国软件套皮）。比如说，国内的企业会信任Yubikey吗，会信任Nitrokey吗，依赖于Google Play的「验证应用」能被国内用户、国内企业使用吗。</p>
+<p>国内目前的相关2FA实践是手机验证码，但似乎这成了必选项，而不是可选项，理想中的2FA应该是其他的验证因素也足够验证，这样大家为「手机不在身边」，「手机号被盗以至于银行卡被盗刷」而烦恼。另外值得一提的是「网银盾」这种2FA，需要更现代、开源的实现，比如WebAuthn，而不是国产不知名，无法审核的插件。</p>
+<h1 id="国内的2FA解决方案"><a href="#国内的2FA解决方案" class="headerlink" title="国内的2FA解决方案"></a>国内的2FA解决方案</h1><p>CanoKey由清华大学的一些老师/学生（同时也是开源社区的大佬）所写，有软硬件（包括PCB设计）皆开源的stm32版本，也有使用密码学芯片的发售版本（其核心功能一致，只是速度较大差别），可供国内广大用户、企业选用，满足其硬件密钥乃至安全性需求。</p>
+<p>这是「合法」的（参考《密码法》），「廉价」的（比市场同类商品价格低，功能更加丰富），「易用」的（相关软件已经发布）。</p>
+<p>同时，用户可以体验<a target="_blank" rel="noopener" href="https://github.com/canokeys/canokey-core#virt-card-usbip">虚拟硬件密钥</a>，进行构建/购买前的测试与游玩！同时也欢迎用户参与核心代码库的贡献，您的贡献可能出现在下一版的发售中！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.zenithal.me/2021/02/15/%E4%BB%8EAnt-Design-GitHub%E5%A4%B1%E7%AA%83%E8%B0%88%E5%BC%80%E5%8E%BB%EF%BC%9A%E5%9B%BD%E5%86%85%E6%9C%89%E5%8F%AF%E7%94%A8%E7%9A%842FA%E5%90%97/" data-id="ckl6h3oam00009oik2mky8juj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/misc/" rel="tag">misc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/01/Link-Preview-May-Reset-Your-Password/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Link Preview May Reset Your Password</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/academic/" rel="tag">academic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/configuration/" rel="tag">configuration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/daily/" rel="tag">daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jiegec/" rel="tag">jiegec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/" rel="tag">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mutt/" rel="tag">mutt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/outlook/" rel="tag">outlook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pgp/" rel="tag">pgp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/" rel="tag">telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/travel/" rel="tag">travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuna/" rel="tag">tuna</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tunight/" rel="tag">tunight</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/academic/" style="font-size: 10px;">academic</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/configuration/" style="font-size: 10px;">configuration</a> <a href="/tags/daily/" style="font-size: 20px;">daily</a> <a href="/tags/jiegec/" style="font-size: 10px;">jiegec</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/mutt/" style="font-size: 20px;">mutt</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/pgp/" style="font-size: 10px;">pgp</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/travel/" style="font-size: 10px;">travel</a> <a href="/tags/tuna/" style="font-size: 10px;">tuna</a> <a href="/tags/tunight/" style="font-size: 10px;">tunight</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/15/%E4%BB%8EAnt-Design-GitHub%E5%A4%B1%E7%AA%83%E8%B0%88%E5%BC%80%E5%8E%BB%EF%BC%9A%E5%9B%BD%E5%86%85%E6%9C%89%E5%8F%AF%E7%94%A8%E7%9A%842FA%E5%90%97/">从Ant Design GitHub失窃案谈开去：国内有可用的2FA吗</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/01/Link-Preview-May-Reset-Your-Password/">Link Preview May Reset Your Password</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/28/%E6%9C%80%E8%B5%B6-%E6%95%A2%E7%9A%84%E4%B8%80%E6%AC%A1PRE/">赶/敢PRE</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/23/Tunight-About-Mutt-and-About-M1/">Tunight: About Mutt and About M1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/TUNA-%E6%88%90%E5%91%98%E5%8F%82%E5%8A%A0%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE2020%E5%B3%B0%E4%BC%9A/">TUNA 成员参加开源软件供应链2020峰会</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Zenithal<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
