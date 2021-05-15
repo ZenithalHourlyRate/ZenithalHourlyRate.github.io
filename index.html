@@ -86,9 +86,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="将-Kindle-作为状态屏"><a href="#将-Kindle-作为状态屏" class="headerlink" title="将 Kindle 作为状态屏"></a>将 Kindle 作为状态屏</h1><p><img src="../img/kindle-grafana.jpg"></p>
+        <p><img src="/images/kindle-grafana.jpg"></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近又开始摸鱼。很久以前有个通知中心的想法（目前这个想法在另一个项目中实现），主要是我注意到我拥有的屏幕并不少（手机平板小电脑Kindle），那么怎么显示这些通知呢；在想这个想法的时候，突然发现，我的 Kindle 还没法自由掌控呢，于是我开始折腾。</p>
 <p>然后有幸越狱（最近刚出了一个利用方式，影响范围还很广，很久没开机的 Kindle 可能都可以利用），有幸拿到 ssh（指中途被自动更新打断差点吓死），有幸摸清了一些服务，有幸找到网络上一系列 <strong>边边角角</strong> 的技术讨论，结合自己一些 Linux 使用经验，整理了以下路径。</p>
+<p>此处是博文，本项目地址在 <a target="_blank" rel="noopener" href="https://github.com/ZenithalHourlyRate/kindle">https://github.com/ZenithalHourlyRate/kindle</a></p>
 <h2 id="kindle-越狱-ssh"><a href="#kindle-越狱-ssh" class="headerlink" title="kindle 越狱/ssh"></a>kindle 越狱/ssh</h2><p>这个参考 <a target="_blank" rel="noopener" href="https://bookfere.com/post/tag/kindle%E8%B6%8A%E7%8B%B1">https://bookfere.com/post/tag/kindle%E8%B6%8A%E7%8B%B1</a> 即可。</p>
 <p>做完这步之后，你能熟练地通过 usb 来 ssh 上你的机器。通过 wifi 的方式需要在更改 iptables 之后做到（清华校园网特性）</p>
 <p>我的体验就几点</p>
@@ -127,7 +128,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;mnt&#x2F;base-us&#x2F;swapfile none swap defaults 0 0</span><br></pre></td></tr></table></figure>
 
 <p>但是观测发现 Kindle 并不会自己挂载 swap，所以我们需要一个 helper 在开机后执行 <code>swapon -a</code>，这个参考 <code>zhelper</code> 文件夹（还没写）。安装方法就是将 <code>zhelper</code> 目录放在 <code>/mnt/base-us/extensions</code> 目录下。</p>
-<h2 id="副屏"><a href="#副屏" class="headerlink" title="副屏"></a>副屏</h2><p>这个的主要灵感是 <a target="_blank" rel="noopener" href="https://github.com/mpetroff/kindle-weather-display/blob/master/kindle/display-weather.sh">https://github.com/mpetroff/kindle-weather-display/blob/master/kindle/display-weather.sh</a>，发现了其中有展示图片的方法。</p>
+<h2 id="状态屏"><a href="#状态屏" class="headerlink" title="状态屏"></a>状态屏</h2><p>这个的主要灵感是 <a target="_blank" rel="noopener" href="https://github.com/mpetroff/kindle-weather-display/blob/master/kindle/display-weather.sh">https://github.com/mpetroff/kindle-weather-display/blob/master/kindle/display-weather.sh</a>，发现了其中有展示图片的方法。</p>
 <p>目前的架构是，Kindle的主服务框架依然开机自启，以便我们进行必要的调整（比如连接 Wifi，调整亮度），我们在 KUAL 中通过 Helper 启用该模式（会关闭电源管理），而这个文件的更新是通过<strong>服务器 scp 到 Kindle</strong>上实现的 （约定位置为 <code>/tmp/screen.png</code>），并触发相关渲染任务（当然也可以 Kindle 轮询实现，请 PR）。由于主服务未关，我们可以随时切换到主服务中进行调整。</p>
 <p>这样在 Kindle 闲置时能自动 <strong>播放</strong> 屏保，非常有意思（不过也相对耗电了）</p>
 <p>当然我们也提供了关闭主服务(Close Framework)的方法，如果想要在重启主服务，需要重启或 <code>ssh kindle initctl start framework</code>。</p>
