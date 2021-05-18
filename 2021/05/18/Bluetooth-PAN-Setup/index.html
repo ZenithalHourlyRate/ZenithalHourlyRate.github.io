@@ -7,23 +7,24 @@
   
   <title>Bluetooth PAN Setup | Zenithal Hourly Radio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="缘起由于我有部分设备没有 RJ45 接口，我也不想买扩展坞或交换机，于是准备在无线上下个功夫，可惜清华的无线网络过于拉跨，除了巨大的延迟与延迟方差，还有认证和下线等问题，实在难受。 这时我注意到了我的机器上基本都有蓝牙。由于我的内网机器都是 Linux 机器，所以自由度还是很大的，于是开始了解相关概念。 Fugoes 以前弄过 ethernet over bluetooth，具体内容如下 1234">
+  <meta name="description" content="缘起由于我有部分设备没有 RJ45 接口，我也不想买扩展坞或交换机，于是准备在无线上下个功夫，可惜清华的无线网络过于拉跨，除了巨大的延迟与延迟方差，还有认证和下线等问题，实在难受。 我日常会将我的键盘和鼠标「ssh」 到别的机器上（类似于要聚餐了我 ssh 过去吃饭），所以对延迟非常敏感。如下图，我用左边的上古机器（上古机器的键盘真的舒服啊）ssh 到右边的平板（没有 RJ45 接口）聊 Tele">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bluetooth PAN Setup">
 <meta property="og:url" content="https://blog.zenithal.me/2021/05/18/Bluetooth-PAN-Setup/index.html">
 <meta property="og:site_name" content="Zenithal Hourly Radio">
-<meta property="og:description" content="缘起由于我有部分设备没有 RJ45 接口，我也不想买扩展坞或交换机，于是准备在无线上下个功夫，可惜清华的无线网络过于拉跨，除了巨大的延迟与延迟方差，还有认证和下线等问题，实在难受。 这时我注意到了我的机器上基本都有蓝牙。由于我的内网机器都是 Linux 机器，所以自由度还是很大的，于是开始了解相关概念。 Fugoes 以前弄过 ethernet over bluetooth，具体内容如下 1234">
+<meta property="og:description" content="缘起由于我有部分设备没有 RJ45 接口，我也不想买扩展坞或交换机，于是准备在无线上下个功夫，可惜清华的无线网络过于拉跨，除了巨大的延迟与延迟方差，还有认证和下线等问题，实在难受。 我日常会将我的键盘和鼠标「ssh」 到别的机器上（类似于要聚餐了我 ssh 过去吃饭），所以对延迟非常敏感。如下图，我用左边的上古机器（上古机器的键盘真的舒服啊）ssh 到右边的平板（没有 RJ45 接口）聊 Tele">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.zenithal.me/images/nadir-with-capella.jpg">
 <meta property="og:image" content="https://blog.zenithal.me/images/azimuth-net-topo.png">
 <meta property="article:published_time" content="2021-05-18T10:33:05.000Z">
-<meta property="article:modified_time" content="2021-05-18T11:37:32.839Z">
+<meta property="article:modified_time" content="2021-05-18T11:47:25.328Z">
 <meta property="article:author" content="Zenithal">
 <meta property="article:tag" content="configuration">
 <meta property="article:tag" content="tech">
 <meta property="article:tag" content="network">
 <meta property="article:tag" content="bluetooth">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.zenithal.me/images/azimuth-net-topo.png">
+<meta name="twitter:image" content="https://blog.zenithal.me/images/nadir-with-capella.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Zenithal Hourly Radio" type="application/atom+xml">
   
@@ -95,6 +96,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>由于我有部分设备没有 RJ45 接口，我也不想买扩展坞或交换机，于是准备在无线上下个功夫，可惜清华的无线网络过于拉跨，除了巨大的延迟与延迟方差，还有认证和下线等问题，实在难受。</p>
+<p>我日常会将我的键盘和鼠标<a target="_blank" rel="noopener" href="https://github.com/dottedmag/x2x">「ssh」</a> 到别的机器上（类似于要聚餐了我 ssh 过去吃饭），所以对延迟非常敏感。如下图，我用左边的上古机器（上古机器的键盘真的舒服啊）ssh 到右边的平板（没有 RJ45 接口）聊 Telegram。</p>
+<p><img src="/images/nadir-with-capella.jpg"></p>
 <p>这时我注意到了我的机器上基本都有蓝牙。由于我的内网机器都是 Linux 机器，所以自由度还是很大的，于是开始了解相关概念。</p>
 <p>Fugoes 以前弄过 <a target="_blank" rel="noopener" href="https://t.me/fugoes_in_mirror/176">ethernet over bluetooth</a>，具体内容如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># for server:</span><br><span class="line">sudo ip link add br-blue type bridge</span><br><span class="line">sudo ip link set br-blue up</span><br><span class="line">sudo bt-network -s nap br-blue</span><br><span class="line"></span><br><span class="line"># for client:</span><br><span class="line">sudo bt-network -c &lt;server&#39;s MAC address&gt; nap</span><br></pre></td></tr></table></figure>
