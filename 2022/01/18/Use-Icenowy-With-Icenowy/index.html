@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>在 Icenowy 的帮助下用上了 Icenowy | Zenithal Hourly Radio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="随身设备我一直想要一台顺手且独特（随身出门当然 show off）的随身设备，无论是笔记本、派、还是手机。顺手在于能满足我 SSH &#x2F; VNC 的需求，独特在于机器比较奇妙，例如其环境配置或机器型号、性能。 几年下来，我尝试过不少随身设备。 在我大一的时候，我尝试过直接在手机上办公，只要随身带一个充电宝和一个蓝牙键盘。经过一番折腾和尝试，我放弃了。一方面是手机上装一个顺手的环境很痛苦（Termu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Icenowy 的帮助下用上了 Icenowy">
+<meta property="og:url" content="https://blog.zenithal.me/2022/01/18/Use-Icenowy-With-Icenowy/index.html">
+<meta property="og:site_name" content="Zenithal Hourly Radio">
+<meta property="og:description" content="随身设备我一直想要一台顺手且独特（随身出门当然 show off）的随身设备，无论是笔记本、派、还是手机。顺手在于能满足我 SSH &#x2F; VNC 的需求，独特在于机器比较奇妙，例如其环境配置或机器型号、性能。 几年下来，我尝试过不少随身设备。 在我大一的时候，我尝试过直接在手机上办公，只要随身带一个充电宝和一个蓝牙键盘。经过一番折腾和尝试，我放弃了。一方面是手机上装一个顺手的环境很痛苦（Termu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.zenithal.me/images/aosc-icenowy.png">
+<meta property="og:image" content="https://blog.zenithal.me/images/nadir-with-capella.jpg">
+<meta property="og:image" content="https://blog.zenithal.me/images/archrv-i3.jpg">
+<meta property="og:image" content="https://blog.zenithal.me/images/m1-asahi.jpg">
+<meta property="og:image" content="https://blog.zenithal.me/images/nixos-aarch64.jpg">
+<meta property="article:published_time" content="2022-01-18T10:15:46.000Z">
+<meta property="article:modified_time" content="2022-01-18T13:51:52.321Z">
+<meta property="article:author" content="Zenithal">
+<meta property="article:tag" content="tech">
+<meta property="article:tag" content="embedded">
+<meta property="article:tag" content="kernel">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="aarch64">
+<meta property="article:tag" content="aosc">
+<meta property="article:tag" content="nix">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.zenithal.me/images/aosc-icenowy.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Zenithal Hourly Radio" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Zenithal Hourly Radio</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.zenithal.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Use-Icenowy-With-Icenowy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/01/18/Use-Icenowy-With-Icenowy/" class="article-date">
+  <time datetime="2022-01-18T10:15:46.000Z" itemprop="datePublished">2022-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在 Icenowy 的帮助下用上了 Icenowy
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/aosc-icenowy.png"></p>
+<h2 id="随身设备"><a href="#随身设备" class="headerlink" title="随身设备"></a>随身设备</h2><p>我一直想要一台顺手且独特（随身出门当然 show off）的随身设备，无论是笔记本、派、还是手机。顺手在于能满足我 SSH / VNC 的需求，独特在于机器比较奇妙，例如其环境配置或机器型号、性能。</p>
+<p>几年下来，我尝试过不少随身设备。</p>
+<p>在我大一的时候，我尝试过直接在手机上办公，只要随身带一个充电宝和一个蓝牙键盘。经过一番折腾和尝试，我放弃了。一方面是手机上装一个顺手的环境很痛苦（Termux 并不顺手，我现在只会临时用用），另一方面就是屏幕实在太小，是一种折磨。</p>
+<p>之后我又在物色随身电脑，于是在咸鱼上收了一台 400 块钱（！）的十年前（！）的笔记本，CPU 是 Intel Core 2 Duo SU9300 2 x 1.2 GHz (Intel Core 2 Duo)，内存有 3G，硬盘是 SSD（这个极大提升体验），10寸的屏幕。我在这台机器上折腾 Arch Linux，用的 i3 ，一路用了两年，性能完全能用（哈哈，能打过 unmatched），体验相当不错，尤其是其老式键盘，敲起来非常舒服。可惜的是，这台机器由于年久，续航非常不行，只有一个半小时，我出门只能带上一个12万毫安时（你没看错，12万）的充电宝，也只能续航 5 到 6 个小时，没办法嘛，45nm 工艺。再加上其 720p 屏幕非常目害，我逐渐有了换新的想法。</p>
+<p>图来自之前 Bluetooth 的那篇，那台随身机器是左边的机器。</p>
+<p><img src="/images/nadir-with-capella.jpg"></p>
+<p>与此同时，随着年岁学识的增长（主要是内网机器的增多），我开始对 x86 阵营感到审美疲劳，准备换个架构换换脑子（勇敢做各个软件的 corner case，哈哈）。</p>
+<p>20年底想过 pinebook（aarch64），可惜被群友劝退了（当时穷穷）；</p>
+<p>21年夏天，由于群友都在做 riscv，所以被安利入了 riscv 的坑，也便有了上一篇文章，在 Nezha D1 上安装 Arch Linux RISC-V，可惜的是，由于 Nezha D1 SDK 过于难受，内核也非常脏，vendor 内核和主线内核都不是很能用（vendor 内核缺功能，主线内核起不来 Wifi 和屏幕，没人想从 vendor SDK 里面把东西 port 过来），我在最终折腾出 i3 桌面后便不再想折腾了，因为当时从键盘敲击到渲染到屏幕上，中间有体感上200ms的延迟，这没法忍；</p>
+<p>在21年10月份，就是在 M1Max 发布的当天，由于不是群友预告的 M2，失望之下，我准备49年入国军：把旧版的 M1 给买了，但不是切换到 Mac 那套生态，而是在 M1 上启 Linux，这里就非常感谢 Asahi Linux 一直以来的工作了，当时我是想着两周之内折腾好，折腾不好就无条件退货，于是我成功把 Linux 内核起来了，可惜由于当时没有 NVMe 驱动和 MBP 的键盘驱动，机器不是很能用，当时也很忙没空折腾（指从别人的树上 cherry-pick 驱动回来自己当小白鼠）（主要还是机器贵，坏了没法手修），于是就退货了。</p>
+<p><img src="/images/archrv-i3.jpg"><br><img src="/images/m1-asahi.jpg"></p>
+<p>我当时有个想法是，aarch64 随身电脑和 riscv 随身电脑哪个先实现用哪个。</p>
+<h2 id="华为擎云-L420"><a href="#华为擎云-L420" class="headerlink" title="华为擎云 L420"></a>华为擎云 L420</h2><p>某天，突然有消息说华为有一款神秘笔记本，其 CPU 非常神秘，名叫麒麟 9006C，不在官网上挂出。群友热烈讨论了这个事情，某群友甚至在咸鱼上收了一台回来，经过探索发现其就是一个大号手机，CPU 的配置和麒麟9000是一样的（1+3+4 大中小三种核），只是砍掉了基带等芯片。当时我一看：5nm 的手机 CPU 拿来做笔记本，续航相当可用啊，价格也可以接受（相比 XPS，随身电脑作为 Thin Client 不要性能）（同时也相比国内其他 ARM 笔记本），于是手一莽就收了回来。</p>
+<p>今年年初，终于收回来了，收了回来发现一些有趣的事情（其中有一些是 Icenowy 和群友共同发现的）</p>
+<ul>
+<li>机器应该是工程样机</li>
+<li>内核是工程内核，并没有被包管理器管理，开机后内核全是 log，还有很多 kernel function backtrace</li>
+<li>内核编译的时候没有开模块支持，所以不需要 initrd 等</li>
+<li>不知道为什么，内核读不到外置硬盘上的 rootfs，只能读到内置 UFS 上的 rootfs</li>
+<li>主板上有串口，可惜我们不知道是在哪里引出的</li>
+<li>Wifi 和显卡是专有驱动</li>
+<li>Wifi 的固件在 /vendor/firmware 下</li>
+<li>/vendor 下有一堆奇妙东西，比如蓝牙，比如指纹，比如 TEE</li>
+<li>操作系统是银河麒麟，有配合内核和专有驱动做的奇妙二进制（比如 ukui-kwin-wayland）和 systemd-service</li>
+<li>最重要的：我们没有内核源码</li>
+</ul>
+<p>收到机器，最重要的事情当然是自己换 OS 啦，于是开始以下路径。</p>
+<h3 id="NixOS"><a href="#NixOS" class="headerlink" title="NixOS"></a>NixOS</h3><p>在21年夏天，由于 TUNA 一堆人的安利，我开始给我的主要工作台换上了 NixOS，体验相当不错，尤其是没有 dirty 的感觉了（adhoc fix /etc, not quite portable）。当然，最重要的还是非 root 用户能自由装包了，不用 gentoo prefix 这种非常消耗 CPU 的办法了，这样我就能在服务器上养一堆妹子（笑）。引用一段经典对话：</p>
+<blockquote>
+<p>[Forwarded from Zenithal]<br>所以 nix 方便养妹子</p>
+<p>[Forwarded from Zenithal]<br>不然妹子和你好上了来找你要 root</p>
+<p>[Forwarded from Zenithal]<br>你不给还尴尬</p>
+<p>[Forwarded from Zenithal]<br>人家还能 justify 自己要 root 要装包</p>
+<p>[Forwarded from Zenithal]<br>用 nix 的话人家不用 root 也能装包</p>
+<p>[Forwarded from Sequencer]<br>只是分手的时候怕她把你glibc删了</p>
+<p>[Forwarded from Zenithal]<br>对的</p>
+<p>Zenithal, [1/14/22 4:37 AM]<br>另一个问题在于，如果你养了好几个妹子，互相打起来了不会互相扔核弹（指 nuke 了对面家）</p>
+<p>Zenithal, [1/14/22 4:38 AM]<br>后宫嘛，和谐最重要</p>
+<p>Zenithal, [1/14/22 4:40 AM]<br>养后宫最有乐趣的在于一群人一块吃饭一块玩还和和气气的</p>
+</blockquote>
+<p>由于 nixpkgs 这边对 linux-aarch64 的支持也挺不错，于是我开始搓 rootfs。</p>
+<p>类似于 debootstrap，Nix 这边搓的方式其实很简单：写好 configuration.nix 之后，直接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nix-build --no-link <span class="string">&#x27;&lt;nixpkgs/nixos&gt;&#x27;</span> -A config.system.build.tarball -I nixos-config=./configuration.nix</span><br></pre></td></tr></table></figure>
+
+<p>就能获得一个 tarball，直接丢到机器的一个分区上，给内核传一个 init，机器就起来了！</p>
+<p><img src="/images/nixos-aarch64.jpg"></p>
+<p>这里给一个配置的一部分</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不用装内核</span></span><br><span class="line">boot.<span class="attr">isContainer</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="comment"># 从 x86 NixOS 上 cross 一个 tarball 出来</span></span><br><span class="line">nixpkgs.crossSystem.<span class="attr">config</span> = lib.systems.examples.aarch64-multiplatform.config;</span><br><span class="line"><span class="comment"># 打 tarball 的时候把 init 放在简单路径下</span></span><br><span class="line">system.build.<span class="attr">tarball</span> = pkgs.callPackage &lt;nixpkgs/nixos/lib/make-system-tarball.nix&gt; &#123;</span><br><span class="line">  <span class="attr">storeContents</span> = [                                                              </span><br><span class="line">    &#123;                                                                            </span><br><span class="line">      <span class="attr">symlink</span> = <span class="string">&quot;/init&quot;</span>;                                                         </span><br><span class="line">      <span class="attr">object</span> = <span class="string">&quot;<span class="subst">$&#123;config.system.build.toplevel&#125;</span>&quot;</span>;                                </span><br><span class="line">    &#125;                                                                            </span><br><span class="line">  ];                                                                             </span><br><span class="line">  <span class="attr">contents</span> = [];                                                                 </span><br><span class="line">  <span class="attr">compressCommand</span> = <span class="string">&quot;cat&quot;</span>;                                                       </span><br><span class="line">  <span class="attr">compressionExtension</span> = <span class="string">&quot;&quot;</span>;                                                     </span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure>
+
+<p>可惜的是，在最近的 nixpkgs 中，由于对 systemd 的魔改，systemd-udevd 在枚举设备的时候会遗漏几个设备，这样就不能识别机器的键盘和触摸板，Xserver 就没有键盘使用了，切换到老 systemd 后 udev 虽然识别了键盘，但 Xserver 不工作了，体验很难受。</p>
+<p>当时正是半夜，我感到 frustrated，再加上 Icenowy 的大力帮助和当时的安利，我直接干掉了 NixOS，切换上了 Icenowy 操作系统。</p>
+<h3 id="Icenowy"><a href="#Icenowy" class="headerlink" title="Icenowy"></a>Icenowy</h3><p>在讲 Icenowy 之前，我想先讲讲 Icenowy。</p>
+<p>除了之前提到的 udev 问题（debug 到 systemd 是有 Icenowy 的协助的），这个内核还有不少问题，例如其 Wifi 起不来；然后由于我对内核模块有要求，没有源码和内核 header 的情况下无法编译能用的模块。</p>
+<p>Icenowy 也收了这种机器，于是我找对面请求 tech support，冰冰对着没有源码的内核二进制做了以下补丁：</p>
+<ul>
+<li>mask 掉一个功能，修好 wifi 接口的返回值</li>
+<li>将硬编码在内核中的 /vendor/firmware 路径改为 /lib/firmware</li>
+<li>讲内核检查 vermagic 的代码修了一下，可以将不精确匹配的模块插入进去</li>
+</ul>
+<p>于是我就有了一个可以用的内核！冰冰非常恐怖！</p>
+<h3 id="Icenowy-Icenowy"><a href="#Icenowy-Icenowy" class="headerlink" title="Icenowy Icenowy"></a>Icenowy Icenowy</h3><p>在 <a target="_blank" rel="noopener" href="https://aosc.io/news/posts/2022-01-16-aosc-os-9/">AOSC OS 9 Icenowy</a> 发布的当天（30小时制），我在 Icenowy 的帮助下换上了 Icenowy，用上了可用的 Icenowy，这相当有感觉。</p>
+<p>安装方法很直接，aosc 也直接提供 tarball，我直接解压就好，之后的流程便对着 Arch Wiki 走，同时从我的老机器上拷贝一些配置文件回来，系统就起来了，体验和老机器基本一致，但屏幕大可了。</p>
+<p>目前 audio，hdmi 之类的还没有调好，需要继续看银河麒麟那边做过什么黑魔法。</p>
+<h2 id="一些未满足的需求"><a href="#一些未满足的需求" class="headerlink" title="一些未满足的需求"></a>一些未满足的需求</h2><p>用 aarch64 机器一个重要难题在于很多 x86 上的东西你没法很有效得跑，在工作上造成很大的不方便，比如说，「腾 讯 会 议」，比如说 Vivado（这台机器肯定不会装的），这种事情留给时间来检验吧。</p>
+<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><p>本文在 Icenowy 上写成</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.zenithal.me/2022/01/18/Use-Icenowy-With-Icenowy/" data-id="ckyk5911d0000ad9p2yjd5bze" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aarch64/" rel="tag">aarch64</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aosc/" rel="tag">aosc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/embedded/" rel="tag">embedded</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kernel/" rel="tag">kernel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nix/" rel="tag">nix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/08/28/%E5%9C%A8-RISC-V-%E6%9D%BF%E5%AD%90%EF%BC%88%E5%93%AA%E5%90%92-D1%EF%BC%89%E4%B8%8A%E5%AE%89%E8%A3%85-Arch-Linux/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">在 RISC-V 板子（哪吒 D1）上安装 Arch Linux</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aarch64/" rel="tag">aarch64</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/academic/" rel="tag">academic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aosc/" rel="tag">aosc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/archlinux/" rel="tag">archlinux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bluetooth/" rel="tag">bluetooth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/configuration/" rel="tag">configuration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/daily/" rel="tag">daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jiegec/" rel="tag">jiegec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kindle/" rel="tag">kindle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/" rel="tag">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mutt/" rel="tag">mutt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nix/" rel="tag">nix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opinion/" rel="tag">opinion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/outlook/" rel="tag">outlook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pgp/" rel="tag">pgp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/riscv/" rel="tag">riscv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/" rel="tag">telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/travel/" rel="tag">travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuna/" rel="tag">tuna</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tunight/" rel="tag">tunight</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/aarch64/" style="font-size: 10px;">aarch64</a> <a href="/tags/academic/" style="font-size: 10px;">academic</a> <a href="/tags/aosc/" style="font-size: 10px;">aosc</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/archlinux/" style="font-size: 10px;">archlinux</a> <a href="/tags/bluetooth/" style="font-size: 10px;">bluetooth</a> <a href="/tags/configuration/" style="font-size: 16.67px;">configuration</a> <a href="/tags/daily/" style="font-size: 20px;">daily</a> <a href="/tags/embedded/" style="font-size: 13.33px;">embedded</a> <a href="/tags/jiegec/" style="font-size: 10px;">jiegec</a> <a href="/tags/kernel/" style="font-size: 13.33px;">kernel</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/mutt/" style="font-size: 20px;">mutt</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nix/" style="font-size: 10px;">nix</a> <a href="/tags/opinion/" style="font-size: 10px;">opinion</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/pgp/" style="font-size: 10px;">pgp</a> <a href="/tags/riscv/" style="font-size: 10px;">riscv</a> <a href="/tags/security/" style="font-size: 13.33px;">security</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/travel/" style="font-size: 10px;">travel</a> <a href="/tags/tuna/" style="font-size: 10px;">tuna</a> <a href="/tags/tunight/" style="font-size: 10px;">tunight</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/01/18/Use-Icenowy-With-Icenowy/">在 Icenowy 的帮助下用上了 Icenowy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/28/%E5%9C%A8-RISC-V-%E6%9D%BF%E5%AD%90%EF%BC%88%E5%93%AA%E5%90%92-D1%EF%BC%89%E4%B8%8A%E5%AE%89%E8%A3%85-Arch-Linux/">在 RISC-V 板子（哪吒 D1）上安装 Arch Linux</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/18/Bluetooth-PAN-Setup/">Bluetooth PAN Setup</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/16/Kindle-As-A-Status-Screen/">将 Kindle 作为状态屏</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/15/Ant-Design-GitHub-2FA-unavailable-in-China/">从Ant Design GitHub失窃案谈开去：国内有可用的2FA吗</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Zenithal<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
