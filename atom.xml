@@ -6,7 +6,7 @@
   <link href="https://blog.zenithal.me/atom.xml" rel="self"/>
   
   <link href="https://blog.zenithal.me/"/>
-  <updated>2022-01-18T13:51:52.321Z</updated>
+  <updated>2022-01-27T15:28:54.593Z</updated>
   <id>https://blog.zenithal.me/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CanoKey应用、代码与实现</title>
+    <link href="https://blog.zenithal.me/2022/01/27/CanoKey%E5%BA%94%E7%94%A8-%E4%BB%A3%E7%A0%81-%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://blog.zenithal.me/2022/01/27/CanoKey%E5%BA%94%E7%94%A8-%E4%BB%A3%E7%A0%81-%E5%AE%9E%E7%8E%B0/</id>
+    <published>2022-01-27T15:15:46.000Z</published>
+    <updated>2022-01-27T15:28:54.593Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.bilibili.com/video/BV1BF411v7qt">录屏</a>与<a href="https://github.com/plctlab/PLCT-Open-Reports#20220112---canokey---%E9%83%91%E9%88%9C%E5%A3%AC">幻灯片</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1BF411v7qt&quot;&gt;录屏&lt;/a&gt;与&lt;a href=&quot;https://github.com/plctlab/PLCT-Open-Reports#20220112---canokey---%</summary>
+      
+    
+    
+    
+    
+    <category term="tech" scheme="https://blog.zenithal.me/tags/tech/"/>
+    
+    <category term="canokey" scheme="https://blog.zenithal.me/tags/canokey/"/>
+    
+  </entry>
   
   <entry>
     <title>在 Icenowy 的帮助下用上了 Icenowy</title>

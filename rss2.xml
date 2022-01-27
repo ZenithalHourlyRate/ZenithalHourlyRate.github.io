@@ -9,8 +9,34 @@
     <atom:link href="https://blog.zenithal.me/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 18 Jan 2022 13:51:52 GMT</pubDate>
+    <pubDate>Thu, 27 Jan 2022 15:28:54 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>CanoKey应用、代码与实现</title>
+      <link>https://blog.zenithal.me/2022/01/27/CanoKey%E5%BA%94%E7%94%A8-%E4%BB%A3%E7%A0%81-%E5%AE%9E%E7%8E%B0/</link>
+      <guid>https://blog.zenithal.me/2022/01/27/CanoKey%E5%BA%94%E7%94%A8-%E4%BB%A3%E7%A0%81-%E5%AE%9E%E7%8E%B0/</guid>
+      <pubDate>Thu, 27 Jan 2022 15:15:46 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1BF411v7qt&quot;&gt;录屏&lt;/a&gt;与&lt;a href=&quot;https://github.com/plctlab/PLCT-Open-Reports#20220112---canokey---%</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><a href="https://www.bilibili.com/video/BV1BF411v7qt">录屏</a>与<a href="https://github.com/plctlab/PLCT-Open-Reports#20220112---canokey---%E9%83%91%E9%88%9C%E5%A3%AC">幻灯片</a></p>]]></content:encoded>
+      
+      
+      
+      <category domain="https://blog.zenithal.me/tags/tech/">tech</category>
+      
+      <category domain="https://blog.zenithal.me/tags/canokey/">canokey</category>
+      
+      
+      <comments>https://blog.zenithal.me/2022/01/27/CanoKey%E5%BA%94%E7%94%A8-%E4%BB%A3%E7%A0%81-%E5%AE%9E%E7%8E%B0/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>在 Icenowy 的帮助下用上了 Icenowy</title>
