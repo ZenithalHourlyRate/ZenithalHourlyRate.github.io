@@ -7,19 +7,17 @@
   
   <title>在 RISC-V 板子（哪吒 D1）上安装 Arch Linux | Zenithal Hourly Radio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么是这块板子一个月前，在操作 MirrorZ 项目时，我了解到肥猫建的镜像站——武昌首义学院开源软件镜像站，在其中发现一个申必的项目：archriscv，我当时表示震撼猫猫。 过了一段时间，也就是一周前，我心血来潮想找块 RISC-V 板子玩玩，试一下 archriscv（别问我为啥不用 qemu 玩），于是问肥猫有没有消费级板子，肥猫表示可以看看这块。 为了论证这块板子能装上 Arch L">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="在 RISC-V 板子（哪吒 D1）上安装 Arch Linux">
 <meta property="og:url" content="https://blog.zenithal.me/2021/08/28/%E5%9C%A8-RISC-V-%E6%9D%BF%E5%AD%90%EF%BC%88%E5%93%AA%E5%90%92-D1%EF%BC%89%E4%B8%8A%E5%AE%89%E8%A3%85-Arch-Linux/index.html">
 <meta property="og:site_name" content="Zenithal Hourly Radio">
-<meta property="og:description" content="为什么是这块板子一个月前，在操作 MirrorZ 项目时，我了解到肥猫建的镜像站——武昌首义学院开源软件镜像站，在其中发现一个申必的项目：archriscv，我当时表示震撼猫猫。 过了一段时间，也就是一周前，我心血来潮想找块 RISC-V 板子玩玩，试一下 archriscv（别问我为啥不用 qemu 玩），于是问肥猫有没有消费级板子，肥猫表示可以看看这块。 为了论证这块板子能装上 Arch L">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blog.zenithal.me/images/archriscv-free.png">
 <meta property="og:image" content="https://blog.zenithal.me/images/debian-riscv-sipeed.png">
 <meta property="og:image" content="https://blog.zenithal.me/images/archriscv-non-free.png">
 <meta property="og:image" content="https://blog.zenithal.me/images/archriscv-free.png">
 <meta property="article:published_time" content="2021-08-28T11:01:30.000Z">
-<meta property="article:modified_time" content="2021-08-28T12:44:55.013Z">
+<meta property="article:modified_time" content="2022-08-08T08:48:18.879Z">
 <meta property="article:author" content="Zenithal">
 <meta property="article:tag" content="tech">
 <meta property="article:tag" content="embedded">
@@ -100,6 +98,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/images/archriscv-free.png"></p>
+<a id="more"></a>
+
 <h2 id="为什么是这块板子"><a href="#为什么是这块板子" class="headerlink" title="为什么是这块板子"></a>为什么是这块板子</h2><p>一个月前，在操作 <a target="_blank" rel="noopener" href="https://github.com/mirrorz-org">MirrorZ</a> 项目时，我了解到肥猫建的镜像站——<a target="_blank" rel="noopener" href="https://mirrors.wsyu.edu.cn/">武昌首义学院开源软件镜像站</a>，在其中发现一个申必的项目：archriscv，我当时表示震撼猫猫。</p>
 <p>过了一段时间，也就是一周前，我心血来潮想找块 RISC-V 板子玩玩，试一下 archriscv（别问我为啥不用 qemu 玩），于是问肥猫有没有消费级板子，肥猫表示可以看看这块。</p>
 <p>为了论证这块板子能装上 Arch Linux，我看了一些教程和文档，不过发现结果不尽人意，不仅需要用 Windows 特有工具来烧录固件（我手头甚至没有一台 Windows 机器），其内核也较难 hack（源码需要注册后下载，编译需要奇妙虚拟机，生成的镜像是特殊的），这对于我来说非常难受。</p>
@@ -185,7 +185,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aarch64/" rel="tag">aarch64</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/academic/" rel="tag">academic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aosc/" rel="tag">aosc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/archlinux/" rel="tag">archlinux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bluetooth/" rel="tag">bluetooth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canokey/" rel="tag">canokey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chisel/" rel="tag">chisel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/configuration/" rel="tag">configuration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/daily/" rel="tag">daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jiegec/" rel="tag">jiegec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kindle/" rel="tag">kindle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/" rel="tag">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mutt/" rel="tag">mutt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nix/" rel="tag">nix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opinion/" rel="tag">opinion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/outlook/" rel="tag">outlook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pgp/" rel="tag">pgp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/riscv/" rel="tag">riscv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/" rel="tag">telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/travel/" rel="tag">travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuna/" rel="tag">tuna</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tunight/" rel="tag">tunight</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aarch64/" rel="tag">aarch64</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/academic/" rel="tag">academic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aosc/" rel="tag">aosc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/archlinux/" rel="tag">archlinux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bluetooth/" rel="tag">bluetooth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canokey/" rel="tag">canokey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chisel/" rel="tag">chisel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/configuration/" rel="tag">configuration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/daily/" rel="tag">daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jiegec/" rel="tag">jiegec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kindle/" rel="tag">kindle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/" rel="tag">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mutt/" rel="tag">mutt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nix/" rel="tag">nix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opinion/" rel="tag">opinion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/outlook/" rel="tag">outlook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pgp/" rel="tag">pgp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/riscv/" rel="tag">riscv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/" rel="tag">telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/travel/" rel="tag">travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuna/" rel="tag">tuna</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tunight/" rel="tag">tunight</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li></ul>
     </div>
   </div>
 
@@ -195,7 +195,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aarch64/" style="font-size: 10px;">aarch64</a> <a href="/tags/academic/" style="font-size: 12.5px;">academic</a> <a href="/tags/aosc/" style="font-size: 10px;">aosc</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/archlinux/" style="font-size: 10px;">archlinux</a> <a href="/tags/bluetooth/" style="font-size: 10px;">bluetooth</a> <a href="/tags/canokey/" style="font-size: 12.5px;">canokey</a> <a href="/tags/chisel/" style="font-size: 10px;">chisel</a> <a href="/tags/configuration/" style="font-size: 15px;">configuration</a> <a href="/tags/daily/" style="font-size: 17.5px;">daily</a> <a href="/tags/embedded/" style="font-size: 12.5px;">embedded</a> <a href="/tags/jiegec/" style="font-size: 10px;">jiegec</a> <a href="/tags/kernel/" style="font-size: 12.5px;">kernel</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/mutt/" style="font-size: 17.5px;">mutt</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nix/" style="font-size: 10px;">nix</a> <a href="/tags/opinion/" style="font-size: 10px;">opinion</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/pgp/" style="font-size: 10px;">pgp</a> <a href="/tags/riscv/" style="font-size: 12.5px;">riscv</a> <a href="/tags/security/" style="font-size: 12.5px;">security</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/travel/" style="font-size: 10px;">travel</a> <a href="/tags/tuna/" style="font-size: 10px;">tuna</a> <a href="/tags/tunight/" style="font-size: 10px;">tunight</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+      <a href="/tags/aarch64/" style="font-size: 10px;">aarch64</a> <a href="/tags/academic/" style="font-size: 12.5px;">academic</a> <a href="/tags/aosc/" style="font-size: 10px;">aosc</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/archlinux/" style="font-size: 10px;">archlinux</a> <a href="/tags/bluetooth/" style="font-size: 10px;">bluetooth</a> <a href="/tags/canokey/" style="font-size: 12.5px;">canokey</a> <a href="/tags/chisel/" style="font-size: 10px;">chisel</a> <a href="/tags/configuration/" style="font-size: 15px;">configuration</a> <a href="/tags/daily/" style="font-size: 17.5px;">daily</a> <a href="/tags/embedded/" style="font-size: 12.5px;">embedded</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jiegec/" style="font-size: 10px;">jiegec</a> <a href="/tags/kernel/" style="font-size: 12.5px;">kernel</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/mutt/" style="font-size: 17.5px;">mutt</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nix/" style="font-size: 10px;">nix</a> <a href="/tags/opinion/" style="font-size: 10px;">opinion</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/pgp/" style="font-size: 10px;">pgp</a> <a href="/tags/riscv/" style="font-size: 12.5px;">riscv</a> <a href="/tags/security/" style="font-size: 12.5px;">security</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/travel/" style="font-size: 10px;">travel</a> <a href="/tags/tuna/" style="font-size: 10px;">tuna</a> <a href="/tags/tunight/" style="font-size: 10px;">tunight</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
   </div>
 
@@ -204,7 +204,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
     </div>
   </div>
 
@@ -215,6 +215,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/08/08/%E4%B8%80%E6%AC%A1%E6%9C%AC%E5%9C%B0-git-%E4%BB%93%E5%BA%93%E6%8D%9F%E5%9D%8F%E5%90%8E%E7%9A%84%E4%BF%AE%E5%A4%8D/">一次本地 git 仓库损坏后的补救</a>
+          </li>
         
           <li>
             <a href="/2022/06/25/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87-%E5%9F%BA%E4%BA%8E-Chisel-%E5%AE%9E%E7%8E%B0-RISC-V-%E6%8C%87%E4%BB%A4%E9%9B%86%E6%A0%87%E9%87%8F%E5%AF%86%E7%A0%81%E5%AD%A6%E6%89%A9%E5%B1%95/">本科毕业论文：基于 Chisel 实现 RISC-V 指令集标量密码学扩展</a>
@@ -230,10 +234,6 @@
         
           <li>
             <a href="/2021/08/28/%E5%9C%A8-RISC-V-%E6%9D%BF%E5%AD%90%EF%BC%88%E5%93%AA%E5%90%92-D1%EF%BC%89%E4%B8%8A%E5%AE%89%E8%A3%85-Arch-Linux/">在 RISC-V 板子（哪吒 D1）上安装 Arch Linux</a>
-          </li>
-        
-          <li>
-            <a href="/2021/05/18/Bluetooth-PAN-Setup/">Bluetooth PAN Setup</a>
           </li>
         
       </ul>

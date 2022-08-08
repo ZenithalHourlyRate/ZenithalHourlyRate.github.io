@@ -64,6 +64,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-一次本地-git-仓库损坏后的修复" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/08/%E4%B8%80%E6%AC%A1%E6%9C%AC%E5%9C%B0-git-%E4%BB%93%E5%BA%93%E6%8D%9F%E5%9D%8F%E5%90%8E%E7%9A%84%E4%BF%AE%E5%A4%8D/" class="article-date">
+  <time datetime="2022-08-08T07:42:43.000Z" itemprop="datePublished">2022-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/08/%E4%B8%80%E6%AC%A1%E6%9C%AC%E5%9C%B0-git-%E4%BB%93%E5%BA%93%E6%8D%9F%E5%9D%8F%E5%90%8E%E7%9A%84%E4%BF%AE%E5%A4%8D/">一次本地 git 仓库损坏后的补救</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>服务器上有个仓库，由于正在开发中，所以在 commit 后都没有 push 到远端。</p>
+<p>服务器上该仓库所在分区是 nfs，远端 nfs 下面是一个 ext4，之前 nfs 服务器掉电过，所以该 ext4 已经存在损坏。</p>
+<p>恰逢机房要停电倒闸，大约是今天早上八点的事情，但我工作到了四点，忘了这回事（即忘记断电）就去睡觉了。</p>
+<p>一起床，一上机器，一列目录</p>
+<h3 id="文件损坏"><a href="#文件损坏" class="headerlink" title="文件损坏"></a>文件损坏</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls: cannot access <span class="string">&#x27;flash.h&#x27;</span>: Structure needs cleaning</span><br><span class="line">ls: cannot access <span class="string">&#x27;.littlefs_api.h.swp&#x27;</span>: Structure needs cleaning</span><br></pre></td></tr></table></figure>
+
+<p>瞬间醒了，开始救文件</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/08/%E4%B8%80%E6%AC%A1%E6%9C%AC%E5%9C%B0-git-%E4%BB%93%E5%BA%93%E6%8D%9F%E5%9D%8F%E5%90%8E%E7%9A%84%E4%BF%AE%E5%A4%8D/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.zenithal.me/2022/08/08/%E4%B8%80%E6%AC%A1%E6%9C%AC%E5%9C%B0-git-%E4%BB%93%E5%BA%93%E6%8D%9F%E5%9D%8F%E5%90%8E%E7%9A%84%E4%BF%AE%E5%A4%8D/" data-id="cl6kicfj800003jik0dugdhzr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-本科毕业论文-基于-Chisel-实现-RISC-V-指令集标量密码学扩展" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/06/25/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87-%E5%9F%BA%E4%BA%8E-Chisel-%E5%AE%9E%E7%8E%B0-RISC-V-%E6%8C%87%E4%BB%A4%E9%9B%86%E6%A0%87%E9%87%8F%E5%AF%86%E7%A0%81%E5%AD%A6%E6%89%A9%E5%B1%95/" class="article-date">
@@ -170,72 +219,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/images/aosc-icenowy.png"></p>
-<h2 id="随身设备"><a href="#随身设备" class="headerlink" title="随身设备"></a>随身设备</h2><p>我一直想要一台顺手且独特（随身出门当然 show off）的随身设备，无论是笔记本、派、还是手机。顺手在于能满足我 SSH / VNC 的需求，独特在于机器比较奇妙，例如其环境配置或机器型号、性能。</p>
-<p>几年下来，我尝试过不少随身设备。</p>
-<p>在我大一的时候，我尝试过直接在手机上办公，只要随身带一个充电宝和一个蓝牙键盘。经过一番折腾和尝试，我放弃了。一方面是手机上装一个顺手的环境很痛苦（Termux 并不顺手，我现在只会临时用用），另一方面就是屏幕实在太小，是一种折磨。</p>
-<p>之后我又在物色随身电脑，于是在咸鱼上收了一台 400 块钱（！）的十年前（！）的笔记本，CPU 是 Intel Core 2 Duo SU9300 2 x 1.2 GHz (Intel Core 2 Duo)，内存有 3G，硬盘是 SSD（这个极大提升体验），10寸的屏幕。我在这台机器上折腾 Arch Linux，用的 i3 ，一路用了两年，性能完全能用（哈哈，能打过 unmatched），体验相当不错，尤其是其老式键盘，敲起来非常舒服。可惜的是，这台机器由于年久，续航非常不行，只有一个半小时，我出门只能带上一个12万毫安时（你没看错，12万）的充电宝，也只能续航 5 到 6 个小时，没办法嘛，45nm 工艺。再加上其 720p 屏幕非常目害，我逐渐有了换新的想法。</p>
-<p>图来自之前 Bluetooth 的那篇，那台随身机器是左边的机器。</p>
-<p><img src="/images/nadir-with-capella.jpg"></p>
-<p>与此同时，随着年岁学识的增长（主要是内网机器的增多），我开始对 x86 阵营感到审美疲劳，准备换个架构换换脑子（勇敢做各个软件的 corner case，哈哈）。</p>
-<p>20年底想过 pinebook（aarch64），可惜被群友劝退了（当时穷穷）；</p>
-<p>21年夏天，由于群友都在做 riscv，所以被安利入了 riscv 的坑，也便有了上一篇文章，在 Nezha D1 上安装 Arch Linux RISC-V，可惜的是，由于 Nezha D1 SDK 过于难受，内核也非常脏，vendor 内核和主线内核都不是很能用（vendor 内核缺功能，主线内核起不来 Wifi 和屏幕，没人想从 vendor SDK 里面把东西 port 过来），我在最终折腾出 i3 桌面后便不再想折腾了，因为当时从键盘敲击到渲染到屏幕上，中间有体感上200ms的延迟，这没法忍；</p>
-<p>在21年10月份，就是在 M1Max 发布的当天，由于不是群友预告的 M2，失望之下，我准备49年入国军：把旧版的 M1 给买了，但不是切换到 Mac 那套生态，而是在 M1 上启 Linux，这里就非常感谢 Asahi Linux 一直以来的工作了，当时我是想着两周之内折腾好，折腾不好就无条件退货，于是我成功把 Linux 内核起来了，可惜由于当时没有 NVMe 驱动和 MBP 的键盘驱动，机器不是很能用，当时也很忙没空折腾（指从别人的树上 cherry-pick 驱动回来自己当小白鼠）（主要还是机器贵，坏了没法手修），于是就退货了。</p>
-<p><img src="/images/archrv-i3.jpg"><br><img src="/images/m1-asahi.jpg"></p>
-<p>我当时有个想法是，aarch64 随身电脑和 riscv 随身电脑哪个先实现用哪个。</p>
-<h2 id="华为擎云-L420"><a href="#华为擎云-L420" class="headerlink" title="华为擎云 L420"></a>华为擎云 L420</h2><p>某天，突然有消息说华为有一款神秘笔记本，其 CPU 非常神秘，名叫麒麟 9006C，不在官网上挂出。群友热烈讨论了这个事情，某群友甚至在咸鱼上收了一台回来，经过探索发现其就是一个大号手机，CPU 的配置和麒麟9000是一样的（1+3+4 大中小三种核），只是砍掉了基带等芯片。当时我一看：5nm 的手机 CPU 拿来做笔记本，续航相当可用啊，价格也可以接受（相比 XPS，随身电脑作为 Thin Client 不要性能）（同时也相比国内其他 ARM 笔记本），于是手一莽就收了回来。</p>
-<p>今年年初，终于收回来了，收了回来发现一些有趣的事情（其中有一些是 Icenowy 和群友共同发现的）</p>
-<ul>
-<li>机器应该是工程样机</li>
-<li>内核是工程内核，并没有被包管理器管理，开机后内核全是 log，还有很多 kernel function backtrace</li>
-<li>内核编译的时候没有开模块支持，所以不需要 initrd 等</li>
-<li>不知道为什么，内核读不到外置硬盘上的 rootfs，只能读到内置 UFS 上的 rootfs</li>
-<li>主板上有串口，可惜我们不知道是在哪里引出的</li>
-<li>Wifi 和显卡是专有驱动</li>
-<li>Wifi 的固件在 /vendor/firmware 下</li>
-<li>/vendor 下有一堆奇妙东西，比如蓝牙，比如指纹，比如 TEE</li>
-<li>操作系统是银河麒麟，有配合内核和专有驱动做的奇妙二进制（比如 ukui-kwin-wayland）和 systemd-service</li>
-<li>最重要的：我们没有内核源码</li>
-</ul>
-<p>收到机器，最重要的事情当然是自己换 OS 啦，于是开始以下路径。</p>
-<h3 id="NixOS"><a href="#NixOS" class="headerlink" title="NixOS"></a>NixOS</h3><p>在21年夏天，由于 TUNA 一堆人的安利，我开始给我的主要工作台换上了 NixOS，体验相当不错，尤其是没有 dirty 的感觉了（adhoc fix /etc, not quite portable）。当然，最重要的还是非 root 用户能自由装包了，不用 gentoo prefix 这种非常消耗 CPU 的办法了，这样我就能在服务器上养一堆妹子（笑）。引用一段经典对话：</p>
-<blockquote>
-<p>[Forwarded from Zenithal]<br>所以 nix 方便养妹子</p>
-<p>[Forwarded from Zenithal]<br>不然妹子和你好上了来找你要 root</p>
-<p>[Forwarded from Zenithal]<br>你不给还尴尬</p>
-<p>[Forwarded from Zenithal]<br>人家还能 justify 自己要 root 要装包</p>
-<p>[Forwarded from Zenithal]<br>用 nix 的话人家不用 root 也能装包</p>
-<p>[Forwarded from Sequencer]<br>只是分手的时候怕她把你glibc删了</p>
-<p>[Forwarded from Zenithal]<br>对的</p>
-<p>Zenithal, [1/14/22 4:37 AM]<br>另一个问题在于，如果你养了好几个妹子，互相打起来了不会互相扔核弹（指 nuke 了对面家）</p>
-<p>Zenithal, [1/14/22 4:38 AM]<br>后宫嘛，和谐最重要</p>
-<p>Zenithal, [1/14/22 4:40 AM]<br>养后宫最有乐趣的在于一群人一块吃饭一块玩还和和气气的</p>
-</blockquote>
-<p>由于 nixpkgs 这边对 linux-aarch64 的支持也挺不错，于是我开始搓 rootfs。</p>
-<p>类似于 debootstrap，Nix 这边搓的方式其实很简单：写好 configuration.nix 之后，直接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nix-build --no-link <span class="string">&#x27;&lt;nixpkgs/nixos&gt;&#x27;</span> -A config.system.build.tarball -I nixos-config=./configuration.nix</span><br></pre></td></tr></table></figure>
-
-<p>就能获得一个 tarball，直接丢到机器的一个分区上，给内核传一个 init，机器就起来了！</p>
-<p><img src="/images/nixos-aarch64.jpg"></p>
-<p>这里给一个配置的一部分</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不用装内核</span></span><br><span class="line">boot.<span class="attr">isContainer</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="comment"># 从 x86 NixOS 上 cross 一个 tarball 出来</span></span><br><span class="line">nixpkgs.crossSystem.<span class="attr">config</span> = lib.systems.examples.aarch64-multiplatform.config;</span><br><span class="line"><span class="comment"># 打 tarball 的时候把 init 放在简单路径下</span></span><br><span class="line">system.build.<span class="attr">tarball</span> = pkgs.callPackage &lt;nixpkgs/nixos/lib/make-system-tarball.nix&gt; &#123;</span><br><span class="line">  <span class="attr">storeContents</span> = [                                                              </span><br><span class="line">    &#123;                                                                            </span><br><span class="line">      <span class="attr">symlink</span> = <span class="string">&quot;/init&quot;</span>;                                                         </span><br><span class="line">      <span class="attr">object</span> = <span class="string">&quot;<span class="subst">$&#123;config.system.build.toplevel&#125;</span>&quot;</span>;                                </span><br><span class="line">    &#125;                                                                            </span><br><span class="line">  ];                                                                             </span><br><span class="line">  <span class="attr">contents</span> = [];                                                                 </span><br><span class="line">  <span class="attr">compressCommand</span> = <span class="string">&quot;cat&quot;</span>;                                                       </span><br><span class="line">  <span class="attr">compressionExtension</span> = <span class="string">&quot;&quot;</span>;                                                     </span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure>
-
-<p>可惜的是，在最近的 nixpkgs 中，由于对 systemd 的魔改，systemd-udevd 在枚举设备的时候会遗漏几个设备，这样就不能识别机器的键盘和触摸板，Xserver 就没有键盘使用了，切换到老 systemd 后 udev 虽然识别了键盘，但 Xserver 不工作了，体验很难受。</p>
-<p>当时正是半夜，我感到 frustrated，再加上 Icenowy 的大力帮助和当时的安利，我直接干掉了 NixOS，切换上了 Icenowy 操作系统。</p>
-<h3 id="Icenowy"><a href="#Icenowy" class="headerlink" title="Icenowy"></a>Icenowy</h3><p>在讲 Icenowy 之前，我想先讲讲 Icenowy。</p>
-<p>除了之前提到的 udev 问题（debug 到 systemd 是有 Icenowy 的协助的），这个内核还有不少问题，例如其 Wifi 起不来；然后由于我对内核模块有要求，没有源码和内核 header 的情况下无法编译能用的模块。</p>
-<p>Icenowy 也收了这种机器，于是我找对面请求 tech support，冰冰对着没有源码的内核二进制做了以下补丁：</p>
-<ul>
-<li>mask 掉一个功能，修好 wifi 接口的返回值</li>
-<li>将硬编码在内核中的 /vendor/firmware 路径改为 /lib/firmware</li>
-<li>讲内核检查 vermagic 的代码修了一下，可以将不精确匹配的模块插入进去</li>
-</ul>
-<p>于是我就有了一个可以用的内核！冰冰非常恐怖！</p>
-<h3 id="Icenowy-Icenowy"><a href="#Icenowy-Icenowy" class="headerlink" title="Icenowy Icenowy"></a>Icenowy Icenowy</h3><p>在 <a target="_blank" rel="noopener" href="https://aosc.io/news/posts/2022-01-16-aosc-os-9/">AOSC OS 9 Icenowy</a> 发布的当天（30小时制），我在 Icenowy 的帮助下换上了 Icenowy，用上了可用的 Icenowy，这相当有感觉。</p>
-<p>安装方法很直接，aosc 也直接提供 tarball，我直接解压就好，之后的流程便对着 Arch Wiki 走，同时从我的老机器上拷贝一些配置文件回来，系统就起来了，体验和老机器基本一致，但屏幕大可了。</p>
-<p>目前 audio，hdmi 之类的还没有调好，需要继续看银河麒麟那边做过什么黑魔法。</p>
-<h2 id="一些未满足的需求"><a href="#一些未满足的需求" class="headerlink" title="一些未满足的需求"></a>一些未满足的需求</h2><p>用 aarch64 机器一个重要难题在于很多 x86 上的东西你没法很有效得跑，在工作上造成很大的不方便，比如说，「腾 讯 会 议」，比如说 Vivado（这台机器肯定不会装的），这种事情留给时间来检验吧。</p>
-<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><p>本文在 Icenowy 上写成</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2022/01/18/Use-Icenowy-With-Icenowy/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -274,46 +262,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/images/archriscv-free.png"></p>
-<h2 id="为什么是这块板子"><a href="#为什么是这块板子" class="headerlink" title="为什么是这块板子"></a>为什么是这块板子</h2><p>一个月前，在操作 <a target="_blank" rel="noopener" href="https://github.com/mirrorz-org">MirrorZ</a> 项目时，我了解到肥猫建的镜像站——<a target="_blank" rel="noopener" href="https://mirrors.wsyu.edu.cn/">武昌首义学院开源软件镜像站</a>，在其中发现一个申必的项目：archriscv，我当时表示震撼猫猫。</p>
-<p>过了一段时间，也就是一周前，我心血来潮想找块 RISC-V 板子玩玩，试一下 archriscv（别问我为啥不用 qemu 玩），于是问肥猫有没有消费级板子，肥猫表示可以看看这块。</p>
-<p>为了论证这块板子能装上 Arch Linux，我看了一些教程和文档，不过发现结果不尽人意，不仅需要用 Windows 特有工具来烧录固件（我手头甚至没有一台 Windows 机器），其内核也较难 hack（源码需要注册后下载，编译需要奇妙虚拟机，生成的镜像是特殊的），这对于我来说非常难受。</p>
-<p>不过好在，在 Icenowy 的介绍下，我找到了 <a target="_blank" rel="noopener" href="https://linux-sunxi.org/Allwinner_Nezha">https://linux-sunxi.org/Allwinner_Nezha</a> 这个页面，其中给出了一个比较舒畅的折腾方式（主线内核！），至少我能自己折腾分区表和内核了。</p>
-<p>所以有两条路，要么采用厂商附带的分区表、内核，要么自己编译，我更倾向于后者，不过保险起见，我先尝试了前者。</p>
-<h3 id="厂商附带"><a href="#厂商附带" class="headerlink" title="厂商附带"></a>厂商附带</h3><p>由于厂商镜像必须得使用 Windows 特有工具来烧录（Icenowy 并不推荐 hack 这个分区表），我只能找一个 dd 出来的镜像，由于我买的时候没有附带 SD 卡，我前往相关论坛找资源，可惜下载下来均不能用。幸好，我找到了<a target="_blank" rel="noopener" href="https://twd2.me/archives/15798">二老师</a>，二老师刚好有一份 dd 出来的备份，于是我拿到了一个能工作的镜像！</p>
-<p>该镜像的基础版本是 sipeed debian hdmi，是二老师用 Windows 烧录后 dd 出来用于备份的，避免每次需要重新用 Windows 烧写。</p>
-<p>我在 dd 后，成功启动！</p>
-<p><img src="/images/debian-riscv-sipeed.png"></p>
-<p>可惜折腾了一阵后，发现内核缺了不少东西，自己也编译不了相关模块，我准备随便弄一弄就交差了。按照 sipeed 的说法，只需要自己换一个 rootfs 就行，于是我直接把 sipeed 镜像的 debian rootfs 删了换成 archriscv 的，指令如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;mmcblk0p7 &#x2F;mnt</span><br><span class="line">cd &#x2F;mnt</span><br><span class="line">rm -rf *</span><br><span class="line">tar xf ~&#x2F;archriscv-20210601.tar.zst</span><br></pre></td></tr></table></figure>
-
-<p>然后对该 rootfs 做些调整，如何调整参见后文。</p>
-<p>之后就是上电启动了，我没去验证图形界面，只试了串口和 ssh。</p>
-<p><img src="/images/archriscv-non-free.png"></p>
-<p>注意其中内核版本。</p>
-<h3 id="主线内核"><a href="#主线内核" class="headerlink" title="主线内核"></a>主线内核</h3><p><a target="_blank" rel="noopener" href="https://linux-sunxi.org/Allwinner_Nezha">https://linux-sunxi.org/Allwinner_Nezha</a> 中已经非常详细了，在做完这个页面的步骤后即按照 Manual Build Howto 页面的步骤走即可，其中一些参数随着情况改变就行。</p>
-<p>一些构建小建议：</p>
-<p>加速内核代码下载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;git&#x2F;linux.git</span><br><span class="line">cd linux</span><br><span class="line">git remote add smaeul git@github.com:smaeul&#x2F;linux.git</span><br><span class="line">git fetch smaeul riscv&#x2F;d1-wip</span><br><span class="line">git checkout smaeul&#x2F;riscv&#x2F;d1-wip</span><br></pre></td></tr></table></figure>
-
-<p>交叉编译环境构建：由于我用 NixOS，所以……</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">with import &lt;nixpkgs&gt; &#123;</span><br><span class="line">  crossSystem &#x3D; &#123;</span><br><span class="line">    config &#x3D; &quot;riscv64-unknown-linux-gnu&quot;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">mkShell &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>内核编译时还有一些 HOST 依赖，我是这样用的 <code>nix-shell -p gcc flex bison pkg-config ncurses openssl bc swig libelf gmp zlib libmpc pahole</code></p>
-<p>不过在这里要提醒一点，现在该内核、glibc、工具链等的相性不是很好，一些服务（乃至 systemd 本体）在启动时容易 SEGV，最终导致 kernel panic 然后不能启动，我的解决方案是，将所有 SEGV 的服务都 <code>systemctl mask</code> 掉！</p>
-<p>同时，其他不少软件（基本在涉及网络的地方，比如 curl，比如 pacman）都会 SEGV，导致我装软件包只能按照后文中所提的那样，拆下 sd 卡后 chroot 进去装。当然，我们发现 ssh 是能工作的，所以也可以把包 scp 上去然后 <code>pacman -U</code> 安装。</p>
-<p>SEGV/panic 的具体情况可以参考 <a target="_blank" rel="noopener" href="https://gist.github.com/heitbaum/e4dceeb7b236560b94cc66fce91cdd11">https://gist.github.com/heitbaum/e4dceeb7b236560b94cc66fce91cdd11</a></p>
-<p><img src="/images/archriscv-free.png"></p>
-<p>注意其中内核版本，既有 patch 也有我本地修改，按过不表。</p>
-<h2 id="rootfs-调整"><a href="#rootfs-调整" class="headerlink" title="rootfs 调整"></a>rootfs 调整</h2><p>首先修改 <code>/etc/fstab</code>，使得根目录是 rw 的（这能避免一些 SEGV）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;dev&#x2F;mmcblk0p2  &#x2F;       ext4    user_xattr,errors&#x3D;remount-ro    0       1</span><br></pre></td></tr></table></figure>
-
-<p>之后替换镜像源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#39;s_archriscv.felixc.at_mirrors.wsyu.edu.cn&#x2F;archriscv_g&#39; &#x2F;etc&#x2F;pacman.conf</span><br></pre></td></tr></table></figure>
-
-<p>顺便，据肥猫介绍，<code>archriscv-20210601.tar.zst</code> 的 root 密码是 <code>sifive</code>，而比这个更早的镜像没有密码（不过有些小坑在里面）</p>
-<p>顺便， <code>archlinuxcn/binfmt-qemu-static</code> 相当好用，arch-chroot 进去以后直接调整各种配置也比较清爽。</p>
-<h2 id="镜像下载"><a href="#镜像下载" class="headerlink" title="镜像下载"></a>镜像下载</h2><p>镜像下载估计会托管到 archriscv 那边，不过按照目前的情况看，使用厂商内核的镜像可以直接下载 sipeed 的 debian 镜像然后更换 rootfs，没啥技术含量；而折腾主线内核的同学应该有精力自己编译，该内核目前也还不稳定，下载后发现基本不能用反而影响不好，所以没必要提供下载。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2021/08/28/%E5%9C%A8-RISC-V-%E6%9D%BF%E5%AD%90%EF%BC%88%E5%93%AA%E5%90%92-D1%EF%BC%89%E4%B8%8A%E5%AE%89%E8%A3%85-Arch-Linux/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -355,67 +308,11 @@
 <p>我日常会将我的键盘和鼠标<a target="_blank" rel="noopener" href="https://github.com/dottedmag/x2x">「ssh」</a> 到别的机器上（类似于要聚餐了我 ssh 过去吃饭），所以对延迟非常敏感。如下图，我用左边的上古机器（上古机器的键盘真的舒服啊）ssh 到右边的平板（没有 RJ45 接口）聊 Telegram。</p>
 <p><img src="/images/nadir-with-capella.jpg"></p>
 <p>这时我注意到了我的机器上基本都有蓝牙。由于我的内网机器都是 Linux 机器，所以自由度还是很大的，于是开始了解相关概念。</p>
-<p>Fugoes 以前弄过 <a target="_blank" rel="noopener" href="https://t.me/fugoes_in_mirror/176">ethernet over bluetooth</a>，具体内容如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># for server:</span><br><span class="line">sudo ip link add br-blue type bridge</span><br><span class="line">sudo ip link set br-blue up</span><br><span class="line">sudo bt-network -s nap br-blue</span><br><span class="line"></span><br><span class="line"># for client:</span><br><span class="line">sudo bt-network -c &lt;server&#39;s MAC address&gt; nap</span><br></pre></td></tr></table></figure>
-
-<p>在现在的我看来，这个教程已经很精髓了，足够囊括所需，但对于小白来说太不友好了，所以我这篇博文意在扩充以上的命令，给出一些先决条件和准备。</p>
-<h2 id="PAN-Personal-Area-Network"><a href="#PAN-Personal-Area-Network" class="headerlink" title="PAN (Personal Area Network)"></a>PAN (Personal Area Network)</h2><p>PAN 和 LAN、WAN 等概念是一系列的，它更注重个人身边区域设备的连接情况，这个情况下用蓝牙是非常不错的选择。</p>
-<p>为了构建 PAN，蓝牙实现了一种协议 BNEP，能够搭建一个二层隧道。在此基础上，由于程序的实现，我们使用一个 bridge 来连接这些隧道，构建一个完整的二层。</p>
-<p>在目前的实现（bt-network）中，这个 bridge 是实现在服务端的；由于蓝牙的限制，一个服务端只能连接 7 个客户端，也就是说整个 PAN 内最多只能有 8 台设备。经典的网络拓扑是这样的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server:       bnep0--bridge--bnep2</span><br><span class="line">server:       &#x2F;         |      \</span><br><span class="line">server:      &#x2F;         bnep1    \</span><br><span class="line">            &#x2F;           |        |</span><br><span class="line">           &#x2F;            |        |</span><br><span class="line">client0: bnep0          |        |</span><br><span class="line">client1:               bnep0     |</span><br><span class="line">client2:                        bnep0</span><br></pre></td></tr></table></figure>
-
-
-<p>当然我们可以做一些更加高级的组网方式，绕开蓝牙的数量限制，比如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">server:       bnep0--bridge--bnep2</span><br><span class="line">server:       &#x2F;         |      \</span><br><span class="line">server:      &#x2F;         bnep1    \</span><br><span class="line">            &#x2F;           |        |</span><br><span class="line">           &#x2F;            |        |</span><br><span class="line">client0: bnep0          |        |</span><br><span class="line">client1:               bnep0     |</span><br><span class="line">client2:                        bnep0</span><br><span class="line">client2:                         |</span><br><span class="line">client2:                        bridge</span><br><span class="line">client2:                         |</span><br><span class="line">client2:                        bnep1</span><br><span class="line">                                 |</span><br><span class="line">                                 |</span><br><span class="line">                                 |</span><br><span class="line">client8:                        bnep0</span><br></pre></td></tr></table></figure>
-
-<p>不过确实一般人没有这么多蓝牙设备，按下不表。</p>
-<h2 id="配对——预处理"><a href="#配对——预处理" class="headerlink" title="配对——预处理"></a>配对——预处理</h2><p>为了建立 BNEP 隧道，我们需要先配对两个设备，一般而言两边设备都会走以下流程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># start bluetoothd daemon</span><br><span class="line">systemctl start bluetooth</span><br><span class="line">bluetoothctl</span><br><span class="line">[bluetoothctl] power on</span><br><span class="line">[bluetoothctl] pairable on</span><br><span class="line">[bluetoothctl] discoverable on</span><br><span class="line">[bluetoothctl] scan on</span><br></pre></td></tr></table></figure>
-
-<p>之后便是配对，只需一方发起，不过需要双方确认</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bluetoothctl] pair &lt;MAC of peer device&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这里的 MAC 地址需要根据自己的设备情况填入。在 pair 成功后，即可进行以下组网操作。</p>
-<h2 id="组网"><a href="#组网" class="headerlink" title="组网"></a>组网</h2><h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><p>按照程序的一贯特点，bridge 是需要我们手动启动的，所以我有如下脚本。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip l add pan0 type bridge</span><br><span class="line">ip l set pan0 up</span><br><span class="line">ip a a 10.0.111.1&#x2F;24 dev pan0</span><br></pre></td></tr></table></figure>
-
-<p>之后分别在两个控制台中启用两个服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bt-agent</span><br><span class="line">bt-network -s nap pan0</span><br></pre></td></tr></table></figure>
-
-<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bluetoothctl</span><br><span class="line">[bluetoothctl] connect &lt;MAC of server device&gt;</span><br></pre></td></tr></table></figure>
-
-<p>由于 connect 后如果没有服务与活动，该连接会自动断开，所以我们需要在链接刚好启动的时候，在另一窗口运行以下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bt-network -c &lt;MAC of server device&gt; nap</span><br></pre></td></tr></table></figure>
-
-<p>如果命令成功，我们就可以 <code>ip l</code> 看到一个新的设备啦</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ip a show dev bnep0</span><br><span class="line">229: bnep0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000</span><br><span class="line">    link&#x2F;ether 28:3a:4d:7e:ec:0e brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet6 fe80::2a3a:4dff:fe7e:ec0e&#x2F;64 scope link </span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
-
-<p>这时我们就可以配上地址并测试联通性了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip a a 10.0.111.2&#x2F;24 dev bnep0</span><br><span class="line">ping -c1 10.0.111.1</span><br></pre></td></tr></table></figure>
-
-<h2 id="一些日志"><a href="#一些日志" class="headerlink" title="一些日志"></a>一些日志</h2><h3 id="服务端-1"><a href="#服务端-1" class="headerlink" title="服务端"></a>服务端</h3><p>连接成功后会有以下日志</p>
-<ul>
-<li>bt-agent<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ bt-agent</span><br><span class="line">Agent registered</span><br><span class="line">Default agent requested</span><br><span class="line">Device: client (MAC) for UUID xxxxxx</span><br></pre></td></tr></table></figure></li>
-<li>bt-network<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bt-network -s nap pan0</span><br><span class="line">NAP server registered</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bt-network -c &lt;server MAC&gt; nap</span><br><span class="line">Network service is connected</span><br></pre></td></tr></table></figure>
-
-<h3 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ ping -c4 10.0.111.1</span><br><span class="line">PING 10.0.111.1 (10.0.111.1) 56(84) bytes of data.</span><br><span class="line">64 bytes from 10.0.111.1: icmp_seq&#x3D;1 ttl&#x3D;64 time&#x3D;28.6 ms</span><br><span class="line">64 bytes from 10.0.111.1: icmp_seq&#x3D;2 ttl&#x3D;64 time&#x3D;22.9 ms</span><br><span class="line">64 bytes from 10.0.111.1: icmp_seq&#x3D;3 ttl&#x3D;64 time&#x3D;22.8 ms</span><br><span class="line">64 bytes from 10.0.111.1: icmp_seq&#x3D;4 ttl&#x3D;64 time&#x3D;34.7 ms</span><br><span class="line"></span><br><span class="line">--- 10.0.111.1 ping statistics ---</span><br><span class="line">4 packets transmitted, 4 received, 0% packet loss, time 3005ms</span><br><span class="line">rtt min&#x2F;avg&#x2F;max&#x2F;mdev &#x3D; 22.836&#x2F;27.244&#x2F;34.665&#x2F;4.871 ms</span><br></pre></td></tr></table></figure>
-
-<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[server] $ iperf -s</span><br><span class="line">[client] $ iperf -c 10.0.111.1 -t 10 -i 2</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Client connecting to 10.0.111.1, TCP port 5001</span><br><span class="line">TCP window size: 85.0 KByte (default)</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">[  3] local 10.0.111.2 port 51094 connected with 10.0.111.1 port 5001</span><br><span class="line">[ ID] Interval       Transfer     Bandwidth</span><br><span class="line">[  3]  0.0- 2.0 sec   640 KBytes  2.62 Mbits&#x2F;sec</span><br><span class="line">[  3]  2.0- 4.0 sec   512 KBytes  2.10 Mbits&#x2F;sec</span><br><span class="line">[  3]  4.0- 6.0 sec   768 KBytes  3.15 Mbits&#x2F;sec</span><br><span class="line">[  3]  6.0- 8.0 sec   785 KBytes  3.22 Mbits&#x2F;sec</span><br><span class="line">[  3]  8.0-10.0 sec   829 KBytes  3.39 Mbits&#x2F;sec</span><br><span class="line">[  3]  0.0-10.3 sec  3.45 MBytes  2.82 Mbits&#x2F;sec</span><br></pre></td></tr></table></figure>
-
-<h2 id="问题与解决"><a href="#问题与解决" class="headerlink" title="问题与解决"></a>问题与解决</h2><h3 id="bluetoothctl-waiting-to-connect-to-bluetoothd"><a href="#bluetoothctl-waiting-to-connect-to-bluetoothd" class="headerlink" title="bluetoothctl waiting to connect to bluetoothd"></a>bluetoothctl waiting to connect to bluetoothd</h3><p>要么没开 <code>bluetooth.service</code>（这是Arch Linux有的，别的发行版请自行寻找等价服务），要么就是蓝牙设备还没有转换过来（常见与Dell的一些蓝牙和Wifi在一张板子上的），这时候需要 <code>hid2hci</code> 这个命令。</p>
-<h3 id="bt-network-c-Network-service-is-not-supported-by-this-device"><a href="#bt-network-c-Network-service-is-not-supported-by-this-device" class="headerlink" title="bt-network -c Network service is not supported by this device"></a>bt-network -c Network service is not supported by this device</h3><p>这时候你还未连接已经配对好的设备，所以说 Network service 不支持啦。这时候需要在 bluetoothctl 中 connect 服务端，并在连接还未断开时运行命令</p>
-<h3 id="bt-network-c-segmentation-fault-core-dumped"><a href="#bt-network-c-segmentation-fault-core-dumped" class="headerlink" title="bt-network -c segmentation fault (core dumped)"></a>bt-network -c segmentation fault (core dumped)</h3><p>服务端没有启动 <code>bt-agent</code></p>
-<h2 id="闲话"><a href="#闲话" class="headerlink" title="闲话"></a>闲话</h2><ul>
-<li>网上的教程都巨大古老了，然后最坑人的是，bluez 这群人非常折腾，许多工具都在版本迭代中没有了，弄得到处碰壁</li>
-<li>蓝牙栈确实没有什么很好的工具，要不是真的想折腾与利用，建议不要折腾。尤其是，组了蓝牙网络以后，其可能并不好纳入已有的网络（比如地址段）。对我来说，我是搭建 overlay network 作为内网的，所以下层越丰富越好</li>
-<li>目前我的内网里有Ethernet，有Wifi，也有蓝牙；有x86，也有arm；有教育网，也有移动网，真是包罗万象了。最后附上一张我内网的拓扑图吧（由于是 full mesh 内网，其拓扑会时常变动，这只是一个截面）。</li>
-</ul>
-<p><img src="/images/azimuth-net-topo.png"></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2021/05/18/Bluetooth-PAN-Setup/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -457,63 +354,11 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近又开始摸鱼。很久以前有个通知中心的想法（目前这个想法在另一个项目中实现），主要是我注意到我拥有的屏幕并不少（手机平板小电脑Kindle），那么怎么显示这些通知呢；在想这个想法的时候，突然发现，我的 Kindle 还没法自由掌控呢，于是我开始折腾。</p>
 <p>然后有幸越狱（最近刚出了一个利用方式，影响范围还很广，很久没开机的 Kindle 可能都可以利用），有幸拿到 ssh（指中途被自动更新打断差点吓死），有幸摸清了一些服务，有幸找到网络上一系列 <strong>边边角角</strong> 的技术讨论，结合自己一些 Linux 使用经验，整理了以下路径。</p>
 <p>此处是博文，本项目地址在 <a target="_blank" rel="noopener" href="https://github.com/ZenithalHourlyRate/kindle">https://github.com/ZenithalHourlyRate/kindle</a></p>
-<h2 id="kindle-越狱-ssh"><a href="#kindle-越狱-ssh" class="headerlink" title="kindle 越狱/ssh"></a>kindle 越狱/ssh</h2><p>这个参考 <a target="_blank" rel="noopener" href="https://bookfere.com/post/tag/kindle%E8%B6%8A%E7%8B%B1">https://bookfere.com/post/tag/kindle%E8%B6%8A%E7%8B%B1</a> 即可。</p>
-<p>做完这步之后，你能熟练地通过 usb 来 ssh 上你的机器。通过 wifi 的方式需要在更改 iptables 之后做到（清华校园网特性）</p>
-<p>我的体验就几点</p>
-<ul>
-<li>在拿出吃灰的 Kindle 查看固件时以及走流程之后直到 Hotfix，都要开启飞行模式！不然自动更新了都没法哭；</li>
-<li>我在 Hotfix 并装了几个插件后，立即被自动更新了，KUAL 就打开失败了，然后只能重装了一次插件（应该是自动更新覆盖了一些文件）；</li>
-<li>要装这个插件：usbnet。首先要使它开机自启「Enable SSH at boot」，这很重要！这是我们之后长期的调试方式！注意到 KUAL 中 usbnet 的「Toggle USBNetwork 」，这个是用来切换模式，USBMS 和 USBNET，前者就是插上以后能挂载盘（USB Mass Storage），后者插上去以后 <code>ip l</code> 多出一个新的 interface（具体名称请自己替换），然后可以这样访问机器<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip l set enp0s20f0u2 up</span><br><span class="line">ip a a 192.168.15.1/24 dev enp0s20f0u2</span><br><span class="line">ssh root@192.168.15.244</span><br></pre></td></tr></table></figure></li>
-<li>这种模式切换是跨启动的，所以说在切换了一次以后，查询一下状态，之后便不用调整了；不过建议多切换一下模式，体验程序的工作方式</li>
-<li>KUAL USBNET 中显示的状态是当前的状态，而不是点击以后进入的状态</li>
-<li>此时先不要开换用 openssh，继续使用 dropbear，等到换了端口以后再换服务器</li>
-<li>装一个禁止休眠的 helper，在休眠后 usb网卡会掉线，从而 ssh 掉线</li>
-</ul>
-<p>然后一些评论：</p>
-<ul>
-<li>网上有说弹出但不物理拔出 Kindle 来启动 usbnet 的方法，这个方法在 Linux 下似乎不是很好操作</li>
-<li>有很多同学热衷于装很多插件，但实际上在 kindle 自己的服务框架内跑服务，是非常吃内存的，在 kindle 完全开机后，我只剩余100M以下的内存，但在关掉 kindle 自己的框架以后，我能剩余接近 300M 的内存。举个例子，自定义屏保插件在每次屏保时会消耗 30~80M 的内存，还不会自动 GC（当时我拿着 <code>top</code> 监控，就怕 oom 了）</li>
-<li>作为 Linux 用户，我们的最终目的就是要干掉 Kindle 的主服务，然后跑自己的服务。网上有一些 chroot 装 Arch Linux/Debian 的帖子，我为内存而担心啊。</li>
-<li>不过我们不要完全抛弃 Kindle 的主服务，比如其提供的亮度调整，Wifi 连接，还是能帮助我们很多的。</li>
-<li>经过探索，发现这个内核不支持 IPv6，也不支持 tun/tap ，对于不能进入我的内网，我表示遗憾。</li>
-</ul>
-<h2 id="调整-IP-桌子"><a href="#调整-IP-桌子" class="headerlink" title="调整 IP 桌子"></a>调整 IP 桌子</h2><p>注意到 <code>/etc/upstart/network.conf</code> 中有 <code>iptables-restore &lt; /etc/sysconfig/iptables</code>，我们查看文件可见几个关键规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">*filter</span><br><span class="line">:INPUT DROP [0:0]</span><br><span class="line">:FORWARD ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line"></span><br><span class="line"># TCP handling. Allow incoming TCP TPH on WAN</span><br><span class="line">-A INPUT -i wlan0 -p tcp -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line"></span><br><span class="line"># Usbnet. All traffic allowed.</span><br><span class="line">-A INPUT -i usb0 -j ACCEPT</span><br><span class="line"></span><br><span class="line"># ICMP. Allow only responses to local connections</span><br><span class="line">-A INPUT -p icmp -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line"></span><br><span class="line">COMMIT</span><br></pre></td></tr></table></figure>
-
-<p>我们需要调整一些规则，比如放行我的 ssh 端口（usbnet 这个插件在启动时会自己加规则，所以不需要给 22 加规则），比如放行 icmp。注意，在调整前建议备份。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -i wlan0 -p tcp -m tcp --dport &lt;my_ssh_port&gt; -j ACCEPT</span><br><span class="line">-A INPUT -p icmp -j ACCEPT</span><br></pre></td></tr></table></figure>
-
-<h2 id="更改-ssh-端口"><a href="#更改-ssh-端口" class="headerlink" title="更改 ssh 端口"></a>更改 ssh 端口</h2><p>重启或手动调整 iptables 规则，确保这时候我们的桌子是正确的。</p>
-<p>这时候修改 <code>/mnt/us/usbnet/etc/sshd_config</code> （该配置不影响 dropbear） 中的端口为 <code>&lt;my_ssh_port&gt;</code>，然后在命令行中手动启动 <code>/usr/sbin/sshd</code> ，尝试是否能连接，如果能连接，则在 KUAL USBNET 中将默认启用的 ssh 设置为 openssh。</p>
-<p>调整后建议重启以验证并再次尝试 ssh，确保服务如预期进行。</p>
-<h2 id="DDNS"><a href="#DDNS" class="headerlink" title="DDNS"></a>DDNS</h2><p>创建 <code>/etc/upstart/ddns</code> 的脚本（记得 <code>chmod +x</code>）（或者可以放在其他位置，比如 <code>/usr/local/bin/</code>，但不能放在 <code>/tmp/root</code> 中），内容为你的 DDNS 提供商的脚本，之后在 <code>/etc/crontab/root</code> 创建 <code>*/5 * * * * /etc/upstart/ddns</code> 的项目。</p>
-<p>建议先手动运行相关脚本，测试脚本的正确性。</p>
-<h2 id="swapfile"><a href="#swapfile" class="headerlink" title="swapfile"></a>swapfile</h2><p>由于内存捉急，我开了一个 swapfile。注意，该文件不能在根 <code>/</code> 下！根下空间不多。</p>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/zero of=/mnt/base-us/swapfile bs=1M count=200</span><br><span class="line">mkswap /mnt/base-us/swapfile</span><br><span class="line">swapon /mnt/base-us/swapfile</span><br></pre></td></tr></table></figure>
-
-<p>然后在 <code>/etc/fstab</code> 的最后加上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;mnt&#x2F;base-us&#x2F;swapfile none swap defaults 0 0</span><br></pre></td></tr></table></figure>
-
-<p>但是观测发现 Kindle 并不会自己挂载 swap，所以我们需要一个 helper 在开机后执行 <code>swapon -a</code>，这个参考 <code>zhelper</code> 文件夹（还没写）。安装方法就是将 <code>zhelper</code> 目录放在 <code>/mnt/base-us/extensions</code> 目录下。</p>
-<h2 id="状态屏"><a href="#状态屏" class="headerlink" title="状态屏"></a>状态屏</h2><p>这个的主要灵感是 <a target="_blank" rel="noopener" href="https://github.com/mpetroff/kindle-weather-display/blob/master/kindle/display-weather.sh">https://github.com/mpetroff/kindle-weather-display/blob/master/kindle/display-weather.sh</a>，发现了其中有展示图片的方法。</p>
-<p>目前的架构是，Kindle的主服务框架依然开机自启，以便我们进行必要的调整（比如连接 Wifi，调整亮度），我们在 KUAL 中通过 Helper 启用该模式（会关闭电源管理），而这个文件的更新是通过<strong>服务器 scp 到 Kindle</strong>上实现的 （约定位置为 <code>/tmp/screen.png</code>），并触发相关渲染任务（当然也可以 Kindle 轮询实现，请 PR）。由于主服务未关，我们可以随时切换到主服务中进行调整。</p>
-<p>这样在 Kindle 闲置时能自动 <strong>播放</strong> 屏保，非常有意思（不过也相对耗电了）</p>
-<p>当然我们也提供了关闭主服务(Close Framework)的方法，如果想要在重启主服务，需要重启或 <code>ssh kindle initctl start framework</code>。</p>
-<p>该服务的安装方法是将 <code>screen/extensions/screen</code> 文件夹放在 <code>/mnt/us/extensions</code> 文件夹下；将 <code>screen/screen</code> 文件夹放在 <code>/mnt/us/</code> 文件夹下。</p>
-<p>由于图片的收集和渲染是服务端实现的，我们只需要保证传输到 Kindle 上的格式符合<a target="_blank" rel="noopener" href="https://www.mobileread.com/forums/showthread.php?t=276225">其需求</a>，我们提供了一个帮助脚本 <code>scripts/png8.sh</code> ，方便转换图片。需要自行修改脚本中的分辨率。</p>
-<p>同时提个了一个样例部署脚本 <code>scripts/server.sh</code>。</p>
-<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><ul>
-<li>在翻 <code>/etc/network/interfaces</code> 发现 <code>bnep0</code>，注意到被闲置的蓝牙</li>
-<li><code>/var/log/messages</code> 是整个系统启动的 log，可以用这个查看 Kindle 的服务启动顺序。</li>
-<li>服务的错误信息都在 <code>/tmp/some\_app.err</code> 中</li>
-<li>类似于 <code>systemctl</code>，Kindle 有 <code>initctl</code></li>
-</ul>
-<h2 id="未来可能的方向"><a href="#未来可能的方向" class="headerlink" title="未来可能的方向"></a>未来可能的方向</h2><ul>
-<li>安装 Debian/Arch Linux</li>
-<li>更换内核，开启 IPv6 / TUNTAP 的支持</li>
-<li>给 Kindle 上蓝牙组网</li>
-</ul>
-
+        
+          <p class="article-more-link">
+            <a href="/2021/05/16/Kindle-As-A-Status-Screen/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -552,22 +397,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><p>本文是 <a target="_blank" rel="noopener" href="https://canokeys.org/">https://canokeys.org</a> 或（Telegram: @canokeys）的硬广，但本文并非 Canokeys 官方发布。</p>
-<h1 id="事件本身"><a href="#事件本身" class="headerlink" title="事件本身"></a>事件本身</h1><p>2021-02-15，UTC+8，早晨的群友发现 <a target="_blank" rel="noopener" href="https://ant.design/">https://ant.design</a> 404，后官方推特向GitHub反馈表明帐号失窃，相关项目被转移。</p>
-<h1 id="群友讨论"><a href="#群友讨论" class="headerlink" title="群友讨论"></a>群友讨论</h1><p>不少群友在感叹相关人员水平之后（<a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/issues/4593">延伸材料</a>），灵魂发问：为啥该失窃员工没有对帐号开启2FA（多重因素验证）呢。我的简单回答是：很难，或者没法合法开启。本文不探讨「相关人员水平」或「相关组织管理（指组织强制所有成员开启2FA）」的问题，我们来探讨一下「国内的2FA可用性」。</p>
-<h2 id="GitHub-2FA"><a href="#GitHub-2FA" class="headerlink" title="GitHub 2FA"></a>GitHub 2FA</h2><p>我们知道，现代的登录系统，除了密码，还需要通过其他的验证方式来验证「登录者是帐号所有者」，例如「SMS验证码」，「验证应用（Authenticator App）」，「安全密钥」等，这些验证方式自然也被GitHub所使用，但是，国内的GitHub用户真的能「合法、廉价、易用」地使用相关方式吗。</p>
-<ul>
-<li>SMS验证码：在GitHub该界面中，没有+86用户的选项，而要获取其他区号，除了少部分人（相对于GitHub国内用户基数），基本无法「合法」做到。</li>
-<li>验证应用（Authenticator App）：前有Google Authenticator后有Microsoft Authenticator，更别说开源的Authy，andOTP等工具，但是，除了Google Play商店或者F-droid，我们基本无法在国内的应用商店中找到这些软件，就算找到了，相关软件也需要Google的服务框架（例如小米应用商店中的Microsoft Authenticator），所以这不「易用」，甚至不「合法」，而有些软件是需要搭配硬件密钥使用的（Yubikey，Nitrokey，Google Titan），这些并不「廉价」，甚至进口这些硬件密钥似乎也不「合法」</li>
-<li>安全密钥：也就上文提到的那些硬件密钥，同时还有 Solokeys，U2F-zero 等相关密钥，但这些即不「廉价」（一个用户需要多个密钥用作备份），也不能「大批量购买」（对企业用户来说，这是最大的阻碍，而Ant Design是企业用户）</li>
-</ul>
-<h2 id="糟糕透顶的国内密码学实践"><a href="#糟糕透顶的国内密码学实践" class="headerlink" title="糟糕透顶的国内密码学实践"></a>糟糕透顶的国内密码学实践</h2><p>上述问题，可以推广到大量实践了2FA的应用。</p>
-<p>登录认证，作为基础设施中的基础设施，是应该有一套完整的实践的，但现在各个环节缺失，帐号的安全性如何保障？</p>
-<p>登录认证，作为基础设施中的基础设施，是应该有一套「自主可控」的软件与硬件系统的（这里是严肃的「自主可控」，而不是只是外国软件套皮）。比如说，国内的企业会信任Yubikey吗，会信任Nitrokey吗，依赖于Google Play的「验证应用」能被国内用户、国内企业使用吗。</p>
-<p>国内目前的相关2FA实践是手机验证码，但似乎这成了必选项，而不是可选项，理想中的2FA应该是其他的验证因素也足够验证，这样大家为「手机不在身边」，「手机号被盗以至于银行卡被盗刷」而烦恼。另外值得一提的是「网银盾」这种2FA，需要更现代、开源的实现，比如WebAuthn，而不是国产不知名，无法审核的插件。</p>
-<h1 id="国内的2FA解决方案"><a href="#国内的2FA解决方案" class="headerlink" title="国内的2FA解决方案"></a>国内的2FA解决方案</h1><p>CanoKey由清华大学的一些老师/学生（同时也是开源社区的大佬）所写，有软硬件（包括PCB设计）皆开源的stm32版本，也有使用密码学芯片的发售版本（其核心功能一致，只是速度较大差别），可供国内广大用户、企业选用，满足其硬件密钥乃至安全性需求。</p>
-<p>这是「合法」的（参考《密码法》），「廉价」的（比市场同类商品价格低，功能更加丰富），「易用」的（相关软件已经发布）。</p>
-<p>同时，用户可以体验<a target="_blank" rel="noopener" href="https://github.com/canokeys/canokey-core#virt-card-usbip">虚拟硬件密钥</a>，进行构建/购买前的测试与游玩！同时也欢迎用户参与核心代码库的贡献，您的贡献可能出现在下一版的发售中！</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2021/02/15/Ant-Design-GitHub-2FA-unavailable-in-China/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -606,26 +440,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><p>Link preview provided as a feature by webmail/clients such as Outlook or IM like Telegram may cause unexpected behavior like unwanted account register confirming, automatic mailing list subscribing or even infinite password resetting through links with special functionality.</p>
-<h1 id="The-Story-and-Other-Stories"><a href="#The-Story-and-Other-Stories" class="headerlink" title="The Story and Other Stories"></a>The Story and Other Stories</h1><h2 id="Official-Account-Used-For-Registering"><a href="#Official-Account-Used-For-Registering" class="headerlink" title="Official Account Used For Registering"></a>Official Account Used For Registering</h2><p>One morning, I opened OUR mailbox, and found an address validation letter with a confirming link lying there. Spam, I thought, as this email address is used as a official account, no one in our organizaiton would use it for personal account registration, but right before I close this mailbox, I was suddenly reminded of something.</p>
-<p>The day before this morning, we happily tested a new functionality provided by the webmail of Outlook – Link Preview. Well since we are already modern now, with modern front-end and modern webpage, what’s wrong with link preview? This is what we all expected! This is how modern front-end should be like!</p>
-<p>But wait, would link preview visit every link in this email? If it does, right after I opened this email, the validation would be done!</p>
-<p>Even worse, I cannot check whether the validation is over since the registered account is not in my hand and I dare not click on that confirming link.</p>
-<p>After some discussion within our org, we think that there may be some allow lists that prevent the preview of certain sites, but if the list is not a list of REGEX, when I register the account of popular platforms, the link would still be previewed.</p>
-<p>So the registered account still hangs there, we do not know its status, and bad thing can be done with that account.</p>
-<h2 id="Other-Stories"><a href="#Other-Stories" class="headerlink" title="Other Stories"></a>Other Stories</h2><p>After I discovered this issue, I come to a broader concern on similar issues. And after posting this issue among my friends, more stories are collected and more exploits can be done.</p>
-<p>One story is that one user of Telegram <em>gmailbot</em> received a validation letter one day, and after they opened that bot, the message of confirmation success was received right away. The mechanism of preview of Telegram is to preview every first link of one message unless the user cancels that.</p>
-<p>Another story is that one user of one email provider used that email for some account registering, and one day they forgot their password. For that site, password reset are done by a special link sent to the email address associated with that account, but for the sake of security, the email provider checks every link in the email(common behavior of big providers, maybe), hence the password reset link would have been accessed once when the user sees the email, and the reset cannot be done successfully. Since this security check is a black box and unrevealed to that user, the user tried almost infinitely and asked the admin of that site to debug.</p>
-<h1 id="Spamming-DoS-Fake-Identity-Misbehavior-and-Even-More"><a href="#Spamming-DoS-Fake-Identity-Misbehavior-and-Even-More" class="headerlink" title="Spamming, DoS, Fake Identity, Misbehavior and Even More"></a>Spamming, DoS, Fake Identity, Misbehavior and Even More</h1><ol>
-<li>When subscribing a mailing list on web, a confirmation letter would be sent, in some forms it asks you to reply to that email containing certain string, but mostly it shows you a validation link. This may be used for spamming hence DoS of one account; it can also be used for DoS of one mailing list as all subscribers are ‘valid’.</li>
-<li>When you upload a PGP public key to a keyserver like OpenPGP, it sends validation letter. Hence fake public key of one identity can be made with confirmation, and without revocation.</li>
-<li>As the last story above indicates, password reset can never be done, or done by the provider.</li>
-<li>When there are one-time special functional links(common behavior), and the provider/client automatically access that link in any form, there are unexpected behaviors. </li>
-</ol>
-<h1 id="Related-Report"><a href="#Related-Report" class="headerlink" title="Related Report"></a>Related Report</h1><p>Ref to this post <a target="_blank" rel="noopener" href="https://www.macrumors.com/2020/10/26/link-previews-may-lead-to-security-vulnerabilities/">https://www.macrumors.com/2020/10/26/link-previews-may-lead-to-security-vulnerabilities/</a></p>
-<p>It talks about information leaking and malicious payload, while I am from the perspective of the protocol itself.</p>
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Providers, don’t touch my thing.</p>
-<p>Automation/Rules without turn-off options are bad. </p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/12/01/Link-Preview-May-Reset-Your-Password/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -665,18 +484,11 @@
       
         <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>我们组作为搞系统架构的，总是要看一些系统架构的文章；MICRO 这个会议作为搞微架构的会议，当然是入了老师法眼的，于是一段时间内的组会内容变成了 MICRO 20 文章选读。</p>
 <p>这个选读，自然是同学们来做，当时我去得晚了一些，发现和我相关的文章都被选走了，然后其他的讲具体加速器设计的也没啥意思，做内存的和我也没啥关系，正愁选啥呢，然后就看到了最佳论文候选，一篇讲量子内存微架构的文章，看起来很有意思，于是我选了。</p>
-<h1 id="摸鱼"><a href="#摸鱼" class="headerlink" title="摸鱼"></a>摸鱼</h1><p>但是啊，选了以后，我一直想看，但一直没空看，或者说没有找到可用的空来看，于是直接摸鱼到了PRE那天的前一天晚上。</p>
-<h1 id="慌张"><a href="#慌张" class="headerlink" title="慌张"></a>慌张</h1><p>前一天晚上了，怎么办！</p>
-<p>只能硬上呗。可惜我不懂量子计算机，这种东西看着头痛。还好学过一点量子计算，应该是能看的吧？</p>
-<p>万幸的是，这篇文章的 Background 讲得相当足，然后图片相当有表现力，然后想法也非常直观，于是看的差不多了。</p>
-<p>这时候已经是 PRE 那天早上4点，我想，slides 先不急，先出去吃个饭嘛。</p>
-<h1 id="睡觉"><a href="#睡觉" class="headerlink" title="睡觉"></a>睡觉</h1><p>于是便利蜂走起！然后吃完以后觉得浑身舒服，于是滚回寝室睡觉，这时候是早上6点。</p>
-<h1 id="一个小时！"><a href="#一个小时！" class="headerlink" title="一个小时！"></a>一个小时！</h1><p>然后起床，惊吓，中午12:20了！而组会在13:30，我 slide 还没动手呢！</p>
-<p>于是我花了 10min 赶到地方，开始疯狂铺垫相关背景。</p>
-<p>到 13:25 的时候，背景差不多了，该讲文章的主要贡献了，但没时间了！</p>
-<p>于是我把两张图直接丢上去，各成一页，然后匆匆赶往目的地。</p>
-<h1 id="坑蒙拐骗"><a href="#坑蒙拐骗" class="headerlink" title="坑蒙拐骗"></a>坑蒙拐骗</h1><p>幸好组里没什么人懂量子计算机，蒙混过关！</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/11/28/%E6%9C%80%E8%B5%B6-%E6%95%A2%E7%9A%84%E4%B8%80%E6%AC%A1PRE/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -684,49 +496,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/academic/" rel="tag">academic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/daily/" rel="tag">daily</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Tunight-About-Mutt-and-About-M1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/23/Tunight-About-Mutt-and-About-M1/" class="article-date">
-  <time datetime="2020-11-23T12:56:06.000Z" itemprop="datePublished">2020-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/23/Tunight-About-Mutt-and-About-M1/">Tunight: About Mutt and About M1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="似乎不是很成功"><a href="#似乎不是很成功" class="headerlink" title="似乎不是很成功"></a>似乎不是很成功</h1><p>听众很多，讲者很菜，demo很粗糙</p>
-<p>简介，slides和录像都在 <a target="_blank" rel="noopener" href="https://tuna.moe/event/2020/mutt/">https://tuna.moe/event/2020/mutt/</a> 中</p>
-<h1 id="摸杰哥M1"><a href="#摸杰哥M1" class="headerlink" title="摸杰哥M1"></a>摸杰哥M1</h1><p>直接扔杰哥链接 <a target="_blank" rel="noopener" href="https://jia.je/hardware/2020/11/19/arm-m1-macbookair/">https://jia.je/hardware/2020/11/19/arm-m1-macbookair/</a></p>
-<p>感觉很 fancy</p>
-<p>丽狼nb！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.zenithal.me/2020/11/23/Tunight-About-Mutt-and-About-M1/" data-id="ckhuk81d20000oaikhmre80h0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apple/" rel="tag">apple</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/daily/" rel="tag">daily</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jiegec/" rel="tag">jiegec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mutt/" rel="tag">mutt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tunight/" rel="tag">tunight</a></li></ul>
 
     </footer>
   </div>
@@ -753,7 +522,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aarch64/" rel="tag">aarch64</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/academic/" rel="tag">academic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aosc/" rel="tag">aosc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/archlinux/" rel="tag">archlinux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bluetooth/" rel="tag">bluetooth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canokey/" rel="tag">canokey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chisel/" rel="tag">chisel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/configuration/" rel="tag">configuration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/daily/" rel="tag">daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jiegec/" rel="tag">jiegec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kindle/" rel="tag">kindle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/" rel="tag">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mutt/" rel="tag">mutt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nix/" rel="tag">nix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opinion/" rel="tag">opinion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/outlook/" rel="tag">outlook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pgp/" rel="tag">pgp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/riscv/" rel="tag">riscv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/" rel="tag">telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/travel/" rel="tag">travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuna/" rel="tag">tuna</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tunight/" rel="tag">tunight</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aarch64/" rel="tag">aarch64</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/academic/" rel="tag">academic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aosc/" rel="tag">aosc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/archlinux/" rel="tag">archlinux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bluetooth/" rel="tag">bluetooth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canokey/" rel="tag">canokey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chisel/" rel="tag">chisel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/configuration/" rel="tag">configuration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/daily/" rel="tag">daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embedded/" rel="tag">embedded</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jiegec/" rel="tag">jiegec</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kernel/" rel="tag">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kindle/" rel="tag">kindle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/misc/" rel="tag">misc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mutt/" rel="tag">mutt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nix/" rel="tag">nix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opinion/" rel="tag">opinion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/outlook/" rel="tag">outlook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pgp/" rel="tag">pgp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/riscv/" rel="tag">riscv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/" rel="tag">telegram</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/travel/" rel="tag">travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuna/" rel="tag">tuna</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tunight/" rel="tag">tunight</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a></li></ul>
     </div>
   </div>
 
@@ -763,7 +532,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aarch64/" style="font-size: 10px;">aarch64</a> <a href="/tags/academic/" style="font-size: 12.5px;">academic</a> <a href="/tags/aosc/" style="font-size: 10px;">aosc</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/archlinux/" style="font-size: 10px;">archlinux</a> <a href="/tags/bluetooth/" style="font-size: 10px;">bluetooth</a> <a href="/tags/canokey/" style="font-size: 12.5px;">canokey</a> <a href="/tags/chisel/" style="font-size: 10px;">chisel</a> <a href="/tags/configuration/" style="font-size: 15px;">configuration</a> <a href="/tags/daily/" style="font-size: 17.5px;">daily</a> <a href="/tags/embedded/" style="font-size: 12.5px;">embedded</a> <a href="/tags/jiegec/" style="font-size: 10px;">jiegec</a> <a href="/tags/kernel/" style="font-size: 12.5px;">kernel</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/mutt/" style="font-size: 17.5px;">mutt</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nix/" style="font-size: 10px;">nix</a> <a href="/tags/opinion/" style="font-size: 10px;">opinion</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/pgp/" style="font-size: 10px;">pgp</a> <a href="/tags/riscv/" style="font-size: 12.5px;">riscv</a> <a href="/tags/security/" style="font-size: 12.5px;">security</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/travel/" style="font-size: 10px;">travel</a> <a href="/tags/tuna/" style="font-size: 10px;">tuna</a> <a href="/tags/tunight/" style="font-size: 10px;">tunight</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
+      <a href="/tags/aarch64/" style="font-size: 10px;">aarch64</a> <a href="/tags/academic/" style="font-size: 12.5px;">academic</a> <a href="/tags/aosc/" style="font-size: 10px;">aosc</a> <a href="/tags/apple/" style="font-size: 10px;">apple</a> <a href="/tags/archlinux/" style="font-size: 10px;">archlinux</a> <a href="/tags/bluetooth/" style="font-size: 10px;">bluetooth</a> <a href="/tags/canokey/" style="font-size: 12.5px;">canokey</a> <a href="/tags/chisel/" style="font-size: 10px;">chisel</a> <a href="/tags/configuration/" style="font-size: 15px;">configuration</a> <a href="/tags/daily/" style="font-size: 17.5px;">daily</a> <a href="/tags/embedded/" style="font-size: 12.5px;">embedded</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jiegec/" style="font-size: 10px;">jiegec</a> <a href="/tags/kernel/" style="font-size: 12.5px;">kernel</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/misc/" style="font-size: 10px;">misc</a> <a href="/tags/mutt/" style="font-size: 17.5px;">mutt</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nix/" style="font-size: 10px;">nix</a> <a href="/tags/opinion/" style="font-size: 10px;">opinion</a> <a href="/tags/outlook/" style="font-size: 10px;">outlook</a> <a href="/tags/pgp/" style="font-size: 10px;">pgp</a> <a href="/tags/riscv/" style="font-size: 12.5px;">riscv</a> <a href="/tags/security/" style="font-size: 12.5px;">security</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/travel/" style="font-size: 10px;">travel</a> <a href="/tags/tuna/" style="font-size: 10px;">tuna</a> <a href="/tags/tunight/" style="font-size: 10px;">tunight</a> <a href="/tags/web/" style="font-size: 10px;">web</a>
     </div>
   </div>
 
@@ -772,7 +541,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
     </div>
   </div>
 
@@ -783,6 +552,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/08/08/%E4%B8%80%E6%AC%A1%E6%9C%AC%E5%9C%B0-git-%E4%BB%93%E5%BA%93%E6%8D%9F%E5%9D%8F%E5%90%8E%E7%9A%84%E4%BF%AE%E5%A4%8D/">一次本地 git 仓库损坏后的补救</a>
+          </li>
         
           <li>
             <a href="/2022/06/25/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87-%E5%9F%BA%E4%BA%8E-Chisel-%E5%AE%9E%E7%8E%B0-RISC-V-%E6%8C%87%E4%BB%A4%E9%9B%86%E6%A0%87%E9%87%8F%E5%AF%86%E7%A0%81%E5%AD%A6%E6%89%A9%E5%B1%95/">本科毕业论文：基于 Chisel 实现 RISC-V 指令集标量密码学扩展</a>
@@ -798,10 +571,6 @@
         
           <li>
             <a href="/2021/08/28/%E5%9C%A8-RISC-V-%E6%9D%BF%E5%AD%90%EF%BC%88%E5%93%AA%E5%90%92-D1%EF%BC%89%E4%B8%8A%E5%AE%89%E8%A3%85-Arch-Linux/">在 RISC-V 板子（哪吒 D1）上安装 Arch Linux</a>
-          </li>
-        
-          <li>
-            <a href="/2021/05/18/Bluetooth-PAN-Setup/">Bluetooth PAN Setup</a>
           </li>
         
       </ul>

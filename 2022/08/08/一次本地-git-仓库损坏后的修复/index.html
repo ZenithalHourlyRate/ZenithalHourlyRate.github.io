@@ -5,21 +5,20 @@
   
 
   
-  <title>TUNA 成员参加开源软件供应链2020峰会 | Zenithal Hourly Radio</title>
+  <title>一次本地 git 仓库损坏后的补救 | Zenithal Hourly Radio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参见 tuna.moe 主站">
+  <meta name="description" content="服务器上有个仓库，由于正在开发中，所以在 commit 后都没有 push 到远端。 服务器上该仓库所在分区是 nfs，远端 nfs 下面是一个 ext4，之前 nfs 服务器掉电过，所以该 ext4 已经存在损坏。 恰逢机房要停电倒闸，大约是今天早上八点的事情，但我工作到了四点，忘了这回事（即忘记断电）就去睡觉了。 一起床，一上机器，一列目录 文件损坏12ls: cannot access &amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TUNA 成员参加开源软件供应链2020峰会">
-<meta property="og:url" content="https://blog.zenithal.me/2020/11/18/TUNA-%E6%88%90%E5%91%98%E5%8F%82%E5%8A%A0%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE2020%E5%B3%B0%E4%BC%9A/index.html">
+<meta property="og:title" content="一次本地 git 仓库损坏后的补救">
+<meta property="og:url" content="https://blog.zenithal.me/2022/08/08/%E4%B8%80%E6%AC%A1%E6%9C%AC%E5%9C%B0-git-%E4%BB%93%E5%BA%93%E6%8D%9F%E5%9D%8F%E5%90%8E%E7%9A%84%E4%BF%AE%E5%A4%8D/index.html">
 <meta property="og:site_name" content="Zenithal Hourly Radio">
-<meta property="og:description" content="参见 tuna.moe 主站">
+<meta property="og:description" content="服务器上有个仓库，由于正在开发中，所以在 commit 后都没有 push 到远端。 服务器上该仓库所在分区是 nfs，远端 nfs 下面是一个 ext4，之前 nfs 服务器掉电过，所以该 ext4 已经存在损坏。 恰逢机房要停电倒闸，大约是今天早上八点的事情，但我工作到了四点，忘了这回事（即忘记断电）就去睡觉了。 一起床，一上机器，一列目录 文件损坏12ls: cannot access &amp;#">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-11-18T05:48:11.000Z">
-<meta property="article:modified_time" content="2020-11-18T05:50:00.758Z">
+<meta property="article:published_time" content="2022-08-08T07:42:43.000Z">
+<meta property="article:modified_time" content="2022-08-08T08:51:52.413Z">
 <meta property="article:author" content="Zenithal">
-<meta property="article:tag" content="daily">
-<meta property="article:tag" content="tuna">
-<meta property="article:tag" content="travel">
+<meta property="article:tag" content="tech">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Zenithal Hourly Radio" type="application/atom+xml">
@@ -69,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-TUNA-成员参加开源软件供应链2020峰会" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-一次本地-git-仓库损坏后的修复" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/11/18/TUNA-%E6%88%90%E5%91%98%E5%8F%82%E5%8A%A0%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE2020%E5%B3%B0%E4%BC%9A/" class="article-date">
-  <time datetime="2020-11-18T05:48:11.000Z" itemprop="datePublished">2020-11-18</time>
+    <a href="/2022/08/08/%E4%B8%80%E6%AC%A1%E6%9C%AC%E5%9C%B0-git-%E4%BB%93%E5%BA%93%E6%8D%9F%E5%9D%8F%E5%90%8E%E7%9A%84%E4%BF%AE%E5%A4%8D/" class="article-date">
+  <time datetime="2022-08-08T07:42:43.000Z" itemprop="datePublished">2022-08-08</time>
 </a>
     
   </div>
@@ -83,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      TUNA 成员参加开源软件供应链2020峰会
+      一次本地 git 仓库损坏后的补救
     </h1>
   
 
@@ -91,15 +90,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参见 <a target="_blank" rel="noopener" href="https://tuna.moe/blog/2020/iscas-conf/">tuna.moe</a> 主站</p>
+        <p>服务器上有个仓库，由于正在开发中，所以在 commit 后都没有 push 到远端。</p>
+<p>服务器上该仓库所在分区是 nfs，远端 nfs 下面是一个 ext4，之前 nfs 服务器掉电过，所以该 ext4 已经存在损坏。</p>
+<p>恰逢机房要停电倒闸，大约是今天早上八点的事情，但我工作到了四点，忘了这回事（即忘记断电）就去睡觉了。</p>
+<p>一起床，一上机器，一列目录</p>
+<h3 id="文件损坏"><a href="#文件损坏" class="headerlink" title="文件损坏"></a>文件损坏</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls: cannot access <span class="string">&#x27;flash.h&#x27;</span>: Structure needs cleaning</span><br><span class="line">ls: cannot access <span class="string">&#x27;.littlefs_api.h.swp&#x27;</span>: Structure needs cleaning</span><br></pre></td></tr></table></figure>
+
+<p>瞬间醒了，开始救文件</p>
+<a id="more"></a>
+
+<h3 id="Git-损坏"><a href="#Git-损坏" class="headerlink" title="Git 损坏"></a>Git 损坏</h3><p>首先是 <code>git status</code> 看看情况，一看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: .git/index: index file open failed: Input/output error</span><br></pre></td></tr></table></figure>
+
+<p>怎么 git 本体也损坏了，赶快拷贝走</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ tar --ignore-failed-read -czf ~/backup.tgz ./</span><br><span class="line">tar: build/CMakeFiles/usbbootrom.dir/usbd_conf.c.obj.d: Warning: Cannot <span class="built_in">stat</span>: Input/output error</span><br><span class="line">tar: flash.h: Warning: Cannot <span class="built_in">stat</span>: Input/output error</span><br><span class="line">tar: .littlefs_api.h.swp: Warning: Cannot <span class="built_in">stat</span>: Input/output error</span><br><span class="line">tar: .git/index: Warning: Cannot <span class="built_in">stat</span>: Input/output error</span><br></pre></td></tr></table></figure>
+
+<p>一看这个 log 似乎还不错，我感觉还能从 ref 里面找 commit 把东西拿回来。把文件丢到好机器上一看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git fsck</span><br><span class="line">error: inflate: data stream error (unknown compression method)</span><br><span class="line">error: unable to parse header of .git/objects/2c/0e5af1cb6b6265aaf26fc418684e5952e0522a</span><br><span class="line">error: 2c0e5af1cb6b6265aaf26fc418684e5952e0522a: object corrupt or missing: .git/objects/2c/0e5af1cb6b6265aaf26fc418684e5952e0522a</span><br><span class="line">error: inflate: data stream error (unknown compression method)</span><br><span class="line">error: unable to parse header of .git/objects/99/65ff7cece036f6fb5cf1e2945d85a40e4615d0</span><br><span class="line">error: 9965ff7cece036f6fb5cf1e2945d85a40e4615d0: object corrupt or missing: .git/objects/99/65ff7cece036f6fb5cf1e2945d85a40e4615d0</span><br><span class="line">Checking object directories: 100% (256/256), <span class="keyword">done</span>.</span><br><span class="line">error: refs/heads/master: invalid sha1 pointer 0000000000000000000000000000000000000000</span><br><span class="line">notice: HEAD points to an unborn branch (master)</span><br><span class="line">notice: No default references</span><br><span class="line">fatal: .git/index: index file open failed: Input/output error</span><br></pre></td></tr></table></figure>
+
+<p>我……只能尝试去找一个 commit 尝试恢复，首先看看 master 指向哪，一看：</p>
+<h3 id="文件错位"><a href="#文件错位" class="headerlink" title="文件错位"></a>文件错位</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat .git/refs/heads/master</span><br><span class="line">0000000000000000000000000000000000000000 6cab02d8393382761f1a3bbc770ff32fcd771afc Zenithal &lt;i@zenithal.me&gt; 1658677567 +0800     commit (initial): Initial working example</span><br><span class="line">6cab02d8393382761f1a3bbc770ff32fcd771afc d8e3d6b41613f1295f656fb5d21f344924358279 Zenithal &lt;i@zenithal.me&gt; 1658677603 +0800     commit (amend): Initial working example</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>草，这是 reflog，最底端的还不是最新的 commit（我记得之后还有个几个 commit）</p>
+<p>再一看 reflog 是啥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cat .git/logs/refs/heads/master</span><br><span class="line"><span class="comment">#include &quot;mmio.h&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>草草草，是 worktree 文件</p>
+<p>我尝试去 <code>objects</code> 里面找最新的 commit，找不到。</p>
+<p>我只能先保存现有 worktree，然后从 reflog 里面指向的最后一个 commit 恢复 worktree，然后再逐渐 apply 回来</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout 1825d7ca .</span><br><span class="line">Updated 37 paths from 6796640</span><br></pre></td></tr></table></figure>
+
+<p>谢天谢地，这棵树还没坏</p>
+<p>然后看看现有 worktree</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ cat main.c</span><br><span class="line"><span class="comment">#include &lt;stddef.h&gt;</span></span><br><span class="line"><span class="comment">#include &quot;mmio.h&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#include &quot;flash.h&quot;</span></span><br><span class="line"></span><br><span class="line">int <span class="function"><span class="title">flash_init</span></span>() &#123;</span><br></pre></td></tr></table></figure>
+
+<p>怎么是 <code>flash.c</code> 的内容……</p>
+<p>仔细翻了一遍以后发现文件全错位了，只找到一个好的新文件，刚好对应下一个 commit。</p>
+<p>没 commit 的内容就全部没了，只能重写，不过还好都是些测试，问题不大。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.zenithal.me/2020/11/18/TUNA-%E6%88%90%E5%91%98%E5%8F%82%E5%8A%A0%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE2020%E5%B3%B0%E4%BC%9A/" data-id="ckhmzl28500005jik7mlw9stp" class="article-share-link">Share</a>
+      <a data-url="https://blog.zenithal.me/2022/08/08/%E4%B8%80%E6%AC%A1%E6%9C%AC%E5%9C%B0-git-%E4%BB%93%E5%BA%93%E6%8D%9F%E5%9D%8F%E5%90%8E%E7%9A%84%E4%BF%AE%E5%A4%8D/" data-id="cl6kicfj800003jik0dugdhzr" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/daily/" rel="tag">daily</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/travel/" rel="tag">travel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tuna/" rel="tag">tuna</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
 
     </footer>
   </div>
@@ -107,19 +142,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/11/23/Tunight-About-Mutt-and-About-M1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Tunight: About Mutt and About M1
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/16/%E4%BB%8E-Signing-Party-%E5%88%B0%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1-Revoke/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/06/25/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87-%E5%9F%BA%E4%BA%8E-Chisel-%E5%AE%9E%E7%8E%B0-RISC-V-%E6%8C%87%E4%BB%A4%E9%9B%86%E6%A0%87%E9%87%8F%E5%AF%86%E7%A0%81%E5%AD%A6%E6%89%A9%E5%B1%95/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">从 Signing Party 到年轻人的第一次 Revoke</div>
+      <div class="article-nav-title">本科毕业论文：基于 Chisel 实现 RISC-V 指令集标量密码学扩展</div>
     </a>
   
 </nav>
